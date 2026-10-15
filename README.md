@@ -73,3 +73,23 @@ dimensions** — nothing is downscaled — and the original is kept as a
 
 Read **`guardrails.md`** before making changes. **`context.md`** carries the
 running summary of what changed and why.
+
+### Layout
+
+```
+portfolio/
+├── index.html
+├── vite.config.js
+├── public/            images, favicon, resume downloads
+├── scripts/           image optimisation (runs on build)
+└── src/
+    ├── Portfolio.jsx          hero, impact, selected work, contact
+    ├── PortfolioSections.jsx  experience, more projects, education, …
+    ├── ProductJourney.jsx     the six-stage "How I Work" panel
+    ├── JourneyVisuals.jsx     one inline SVG diagram per stage
+    ├── ResumePreview.jsx      resume dialog
+    ├── data/                  all copy and figures
+    └── *.css                  styles
+```
+
+Every fact on the page comes from `src/data/portfolio.js`.

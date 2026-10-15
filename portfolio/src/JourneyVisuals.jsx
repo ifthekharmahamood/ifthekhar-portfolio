@@ -27,7 +27,7 @@ function Ideation() {
       ))}
       <rect x="78" y="78" width="64" height="46" rx="8" fill={F} stroke={T} strokeWidth="2" />
       <path d="M92 101h36M110 89v24" stroke={T} strokeWidth="2" strokeLinecap="round" />
-      <text x="110" y="156" textAnchor="middle" fontSize="11" fill={T} fontWeight="600">one problem</text>
+      <text x="110" y="156" textAnchor="middle" fontSize="12" fill={T} fontWeight="600">one problem</text>
     </svg>
   );
 }
@@ -43,12 +43,12 @@ function Planning() {
         </g>
       ))}
       <path d="M14 122h192" stroke={T} strokeWidth="2" strokeDasharray="6 5" strokeLinecap="round" />
-      <text x="206" y="117" textAnchor="end" fontSize="10" fill={T} fontWeight="600">scope</text>
+      <text x="206" y="117" textAnchor="end" fontSize="12" fill={T} fontWeight="600">scope</text>
       {[0, 1].map(i => (
         <rect key={i} x="24" y={134 + i * 24} width={92 - i * 18} height="15" rx="4"
               fill="none" stroke={M} strokeWidth="1.5" strokeDasharray="4 4" />
       ))}
-      <text x="196" y="186" textAnchor="end" fontSize="10" fill={M}>later</text>
+      <text x="196" y="186" textAnchor="end" fontSize="12" fill={M}>later</text>
     </svg>
   );
 }
@@ -69,7 +69,7 @@ function Design() {
       </g>
       <path d="M174 124q0 24-28 24H74q-28 0-28-24" fill="none" stroke={M} strokeWidth="1.5" strokeDasharray="4 4" />
       <path d="M50 130l-4-7 8 0z" fill={M} />
-      <text x="110" y="166" textAnchor="middle" fontSize="10.5" fill={M}>tested with users</text>
+      <text x="110" y="166" textAnchor="middle" fontSize="12" fill={M}>tested with users</text>
     </svg>
   );
 }
@@ -91,9 +91,9 @@ function Development() {
         <rect x="155" y="36" width="42" height="22" rx="4" fill={T} stroke={T} strokeWidth="1.5" />
       </g>
       <path d="M163 47l5 5 9-10" stroke="#fff" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      <text x="44" y="190" textAnchor="middle" fontSize="9.5" fill={M}>todo</text>
-      <text x="110" y="190" textAnchor="middle" fontSize="9.5" fill={T} fontWeight="600">building</text>
-      <text x="176" y="190" textAnchor="middle" fontSize="9.5" fill={M}>done</text>
+      <text x="44" y="190" textAnchor="middle" fontSize="12" fill={M}>todo</text>
+      <text x="110" y="190" textAnchor="middle" fontSize="12" fill={T} fontWeight="600">building</text>
+      <text x="176" y="190" textAnchor="middle" fontSize="12" fill={M}>done</text>
     </svg>
   );
 }
@@ -117,9 +117,9 @@ function Launch() {
         <path d="M86 96h10" /><path d="M90 92l5 4-5 4" />
         <path d="M170 96h12" /><path d="M176 92l5 4-5 4" />
       </g>
-      <text x="58" y="156" textAnchor="middle" fontSize="10" fill={T} fontWeight="600">pilot</text>
-      <text x="110" y="166" textAnchor="middle" fontSize="10" fill={T} fontWeight="600">region</text>
-      <text x="166" y="156" textAnchor="middle" fontSize="10" fill={M}>everyone</text>
+      <text x="58" y="156" textAnchor="middle" fontSize="12" fill={T} fontWeight="600">pilot</text>
+      <text x="110" y="166" textAnchor="middle" fontSize="12" fill={T} fontWeight="600">region</text>
+      <text x="166" y="156" textAnchor="middle" fontSize="12" fill={M}>everyone</text>
     </svg>
   );
 }
@@ -132,7 +132,7 @@ function Followup() {
         {[48, 80, 112, 144].map(y => <path key={y} d={`M26 ${y}h168`} />)}
       </g>
       <path d="M26 62h168" stroke={T} strokeWidth="1.6" strokeDasharray="5 4" />
-      <text x="194" y="52" textAnchor="end" fontSize="9.5" fill={T} fontWeight="600">goal</text>
+      <text x="194" y="52" textAnchor="end" fontSize="12" fill={T} fontWeight="600">goal</text>
       <path d="M34 140 L72 128 L110 104 L148 84 L182 70" fill="none" stroke={T} strokeWidth="2.5"
             strokeLinecap="round" strokeLinejoin="round" />
       {[[34, 140], [72, 128], [110, 104], [148, 84], [182, 70]].map(([x, y], i) => (
@@ -140,7 +140,7 @@ function Followup() {
       ))}
       <path d="M30 170q46 16 92 0" fill="none" stroke={M} strokeWidth="1.5" strokeDasharray="4 4" />
       <path d="M30 170l-2-7 8 2z" fill={M} />
-      <text x="134" y="178" fontSize="10" fill={M}>back to discovery</text>
+      <text x="134" y="178" fontSize="12" fill={M}>back to discovery</text>
     </svg>
   );
 }

@@ -28,6 +28,63 @@ Live files in `portfolio/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (fourteenth pass) — full pre-publish audit
+
+**Untracked, kept on disk:** `PORTFOLIO_REVIEW.md` (internal design critique
+that analyses the resume) and `design-exploration/` (7 early concept files).
+
+**Deleted — stale or AI-tooling artifacts.** 55 tracked files down to 32:
+
+- `portfolio/README.md` described a site that no longer exists — Space Grotesk
+  fonts, a blue accent, dark mode, Tailwind, `src/index.css`, `data/content.js`,
+  a `components/` folder, `BrandIcons.jsx`. Every one of those was verified gone
+  before deleting. It also named the AI skill that generated it.
+- `portfolio/design-system/.../MASTER.md` — "Generated: 2026-08-30",
+  "Design Dials: Variance 6/10", "Category: Marketing Agency".
+- `portfolio/design-qa.md` — referenced `D:/Professional/...`, another machine.
+- `portfolio/IMPLEMENTATION.md` — stale (claimed seven-second stages, now 3s;
+  described the removed chapter rail) and written as an AI status report.
+- `portfolio/qa/` (5 scripts + 3 result dumps) — all referenced deleted files;
+  `verify.mjs` still tested `chapter-rail`. None were wired into npm scripts.
+- Both `.claude/launch.json` files — agent config, root one had a dead 5173 entry.
+
+**Dead CSS removed:** 977 bytes of `.chapter-rail`/`.rail-label` rules (the
+side navigation removed several passes ago) plus 17 orphaned classes
+(`.hero-art`, `.about*`, `.now*`, `.career-stories`, `.scroll-cue` and others),
+each confirmed absent from markup and JS first. CSS 37.13 kB -> 33.50 kB.
+
+**Responsive work, measured at 13 viewports from 360px to 1920px:**
+
+- **12px minimum font size.** 22 CSS declarations and all 12 SVG diagram labels
+  were between 9px and 11.5px. SVG text re-checked against its viewBox after.
+- **44px touch targets** via `@media(pointer:coarse)`, so desktop proportions
+  are untouched. Verified with real coarse-pointer emulation: 8 undersized
+  controls down to 0.
+- **Nav no longer wraps.** At 1024px the links broke across three lines
+  mid-label. Added `white-space:nowrap`, then measured the real requirement:
+  **1114px**, so the breakpoint is 1290px. An earlier 638px measurement was
+  wrong — it was taken after the links had already wrapped, which under-reported
+  the need. The hamburger is correct on iPads; verified it opens, lists all 9
+  links and closes on selection.
+- **`h1` is now monotonic.** It previously *shrank* as the screen grew: 67.6px
+  at 768px but 56px at 801px, pinned flat to 1024px. Cause was four stale
+  `.hero h1` overrides in `product-journey.css` left from when the journey panel
+  sat in the hero, plus a separate curve above 1101px that ran below the main
+  one. Removed the overrides and aligned the curves. Also dropped the dead
+  `.hero{min-height:830px}` from the same era.
+
+**Verified clean:** zero horizontal overflow at all 13 viewports, zero console
+errors, zero network failures, all images have alt text, one `h1`, skip link
+present, every in-page anchor resolves, all external links carry `rel`, case
+dialog opens and returns focus to its trigger on Escape, resume preview still
+hides the phone number while the download keeps it.
+
+**One contrast "failure" is a false positive.** `.timeline-promotion` reports
+1.00:1 because its background is `rgba(46,95,69,.08)` and the probe cannot
+composite alpha. Computed by hand: 5.62:1 on sage, 6.07:1 on cream — passes AA.
+
+---
+
 ## Session — 15 October 2026 (thirteenth pass) — prepared for publishing
 
 **`redesign/` renamed to `portfolio/`.** Done with `git mv` so all 40 files keep
