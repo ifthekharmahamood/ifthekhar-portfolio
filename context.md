@@ -27,6 +27,40 @@ Live files in `redesign/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (second pass)
+
+- **Impact heading fixed.** It had been rendering at 12px because the original
+  "A few outcomes" label kept `className="eyebrow"` when its text changed to
+  "Impact". It is now a normal section heading at 62px, matching every other
+  section title. No deliberate reason for the old size — a leftover.
+- **Metrics 2 and 3 swapped**: reviews (4.4*) now precedes downloads (100K+).
+- **Selected Work reordered** to Time Warp Scan, Beauty Editor, Shuttle
+  Partner App. Fixing this exposed a numbering bug: the reorder left empty
+  array slots, so the eyebrows read 02/03/05 and collided with More Projects.
+  The sequence now runs 01-09 across both sections.
+- **"Process" renamed "How I Work"** and moved to sit after Awards &
+  Scholarships, before Hobbies. Its padding was retuned, since it previously
+  flowed directly out of Impact and now follows another cream section.
+- **Per-stage diagrams added** to fill the empty right half of that section:
+  `src/JourneyVisuals.jsx`, one inline SVG per lifecycle stage (converging
+  signals, prioritised backlog, prototype flow, delivery board, staged
+  rollout, outcome vs. goal). Inline SVG rather than image files so the set
+  costs no extra request, stays sharp at any resolution, and matches the
+  palette. They appear at >=1000px and are hidden on narrower screens.
+- **Removed the "Experience ->" chapter link** under More Projects. It was
+  redundant: the Experience heading follows immediately on scroll.
+- **External links added**, all opening in a new tab with `rel="noreferrer"`:
+  employers in the timeline (Lamar, Kite Games, Fashol, Shuttle, ACI Motors),
+  both schools, both SAP certifications (verification URLs), and the GitHub
+  repository on the Customer Purchase Analysis case study.
+- **ACI Motors added** to the timeline: Network Development Intern,
+  Jan 2021 - Apr 2021, placed last as the earliest role.
+- **Shuttle project tags corrected**: Product Specialist now shows Shuttle
+  Partner App, Partner ERP, Driverkoi; Management Trainee shows Jatrikoi,
+  Shuttle Website, Internal Reporting Panel.
+
+---
+
 ## Session — 15 October 2026
 
 - **Headshot placed.** Owner supplied `headshot.png` (1254x1254). Quality was

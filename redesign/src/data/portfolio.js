@@ -6,10 +6,23 @@ export const person = {
 };
 export const outcomes = [
   { value: 5, suffix: 'M+', decimals: 1, label: 'Time Warp Scan downloads', spoken: 'Over 5 million Time Warp Scan downloads' },
-  { value: 100, suffix: 'K+', label: 'Beauty Editor: Photo Retouch downloads', spoken: 'Over 100 thousand Beauty Editor Photo Retouch downloads' },
   { value: 4.4, suffix: '★', decimals: 1, label: 'Beauty Editor: Photo Retouch reviews', spoken: '4.4 star rating for Beauty Editor Photo Retouch' },
+  { value: 100, suffix: 'K+', label: 'Beauty Editor: Photo Retouch downloads', spoken: 'Over 100 thousand Beauty Editor Photo Retouch downloads' },
 ];
 export const stories = [
+  {
+    id: 'timewarp', title: 'Time Warp Scan', category: 'Consumer mobile', company: 'Kite Games Studio',
+    image: '/images/timewarp-green-cream.png', heading: 'Simpler tools. More room to create.',
+    summary: 'Focused the app on two effects and rebuilt a single shoot, edit, and export flow in a category that kept adding filters.',
+    result: '5M+ downloads', focus: 'Product focus · User journeys · Cross-functional delivery',
+    link: 'https://play.google.com/store/apps/details?id=com.kgs.timewarpscan',
+    context: 'Time Warp Scan is a camera and video effects app published by Kite Games Studio. I managed it during my April–December 2024 product management role.',
+    sections: [
+      ['The product choice', 'While the category kept adding filters, I cut the app to two effects and rebuilt the journey into a single shoot, edit, and export flow.'],
+      ['Working with engineering', 'When a design dispute emerged, I asked which elements were expensive rather than defending the specification. We removed two costly animations that carried no measurable value.'],
+      ['The outcome', 'The app reached 5M+ downloads, with a 4.0 rating across 23,600+ reviews as recorded in my resume. These are historical resume figures, rather than live store statistics.'],
+    ],
+  },
   {
     id: 'beauty', title: 'Beauty Editor', category: 'Consumer mobile', company: 'Kite Games Studio',
     image: '/images/beauty-green-cream.png', heading: 'A better first-time experience.',
@@ -36,26 +49,13 @@ export const stories = [
       ['Connect the systems', 'For Partner ERP, I documented manual processes and gathered driver, operations, and finance requirements. Automating weekly bill disbursement and vehicle requests raised throughput 20% and removed 50% of the paperwork.'],
     ],
   },
-  {
-    id: 'timewarp', title: 'Time Warp Scan', category: 'Consumer mobile', company: 'Kite Games Studio',
-    image: '/images/timewarp-green-cream.png', heading: 'Simpler tools. More room to create.',
-    summary: 'Focused the app on two effects and rebuilt a single shoot, edit, and export flow in a category that kept adding filters.',
-    result: '5M+ downloads', focus: 'Product focus · User journeys · Cross-functional delivery',
-    link: 'https://play.google.com/store/apps/details?id=com.kgs.timewarpscan',
-    context: 'Time Warp Scan is a camera and video effects app published by Kite Games Studio. I managed it during my April–December 2024 product management role.',
-    sections: [
-      ['The product choice', 'While the category kept adding filters, I cut the app to two effects and rebuilt the journey into a single shoot, edit, and export flow.'],
-      ['Working with engineering', 'When a design dispute emerged, I asked which elements were expensive rather than defending the specification. We removed two costly animations that carried no measurable value.'],
-      ['The outcome', 'The app reached 5M+ downloads, with a 4.0 rating across 23,600+ reviews as recorded in my resume. These are historical resume figures, rather than live store statistics.'],
-    ],
-  },
 ];
 // One timeline, newest first. University roles are merged in by date rather than
 // living in a separate "learning in practice" block. `projects` tags each role with
 // the work shown elsewhere on the page, so a reader can connect company to project.
 export const career = [
   {
-    company: 'Lamar University', role: 'Graduate Assistant, SAP Help Desk',
+    company: 'Lamar University', url: 'https://www.lamar.edu/', role: 'Graduate Assistant, SAP Help Desk',
     period: 'Sep 2026 - Present', status: 'Current', location: 'Beaumont, Texas',
     blurb: 'College of Business SAP lab supporting students and faculty across enterprise systems and predictive analytics coursework.',
     points: [
@@ -64,14 +64,14 @@ export const career = [
     ],
   },
   {
-    company: 'Lamar University', role: 'IT Student Assistant',
+    company: 'Lamar University', url: 'https://www.lamar.edu/', role: 'IT Student Assistant',
     period: 'Feb 2025 - May 2026', location: 'Beaumont, Texas',
     points: [
       'Handled first-line identity, access, and connectivity issue resolution for students, faculty, and staff, explaining each fix to non-technical users.',
     ],
   },
   {
-    company: 'Kite Games Studio', role: 'Product Manager',
+    company: 'Kite Games Studio', url: 'https://www.kitegamesstudio.com/', role: 'Product Manager',
     period: 'Apr 2024 - Dec 2024', location: 'Dhaka, Bangladesh',
     blurb: 'Mobile studio publishing consumer camera and photo apps across the US, UK, and Japan. Owned two apps end to end with a cross-functional team of 10+ engineers, QA specialists, and designers.',
     projects: ['Time Warp Scan', 'Beauty Editor'],
@@ -83,7 +83,7 @@ export const career = [
     ],
   },
   {
-    company: 'Fashol', role: 'Product Manager',
+    company: 'Fashol', url: 'https://fashol.com/', role: 'Product Manager',
     period: 'Oct 2023 - Feb 2024', location: 'Dhaka, Bangladesh',
     blurb: 'Agriculture marketplace sourcing from farmers and supplying B2B retail chains. Product manager across four products with a five-person engineering and QA team.',
     projects: ['Supplier products', 'Smart Shelf'],
@@ -93,11 +93,11 @@ export const career = [
     ],
   },
   {
-    company: 'Shuttle', role: 'Product Specialist',
+    company: 'Shuttle', url: 'https://www.shuttlebd.com/', role: 'Product Specialist',
     period: 'Jun 2022 - Sep 2023', location: 'Dhaka, Bangladesh',
     promotedFrom: 'Promoted from Management Trainee',
     blurb: 'Ride-sharing and commuter shuttle platform in Dhaka. Product Owner for the Partner App, the internal Partner ERP, and the acquisition systems for both sides of the marketplace, leading five engineers and a QA specialist.',
-    projects: ['Shuttle Partner App', 'Partner ERP', 'Jatrikoi & Driverkoi'],
+    projects: ['Shuttle Partner App', 'Partner ERP', 'Driverkoi'],
     points: [
       'Cut driver onboarding cost 40% by shipping a self-serve registration flow, scoped after driver interviews exposed where the manual signup process broke down.',
       'Shipped Driver Earnings, the payouts surface where drivers tracked and received trip income, cutting payment processing time 50% and tripling driver engagement after regional rollout.',
@@ -107,11 +107,20 @@ export const career = [
     ],
   },
   {
-    company: 'Shuttle', role: 'Management Trainee',
+    company: 'Shuttle', url: 'https://www.shuttlebd.com/', role: 'Management Trainee',
     period: 'Jun 2021 - Jun 2022', location: 'Dhaka, Bangladesh',
     blurb: 'Joined the commuter shuttle platform as a management trainee, learning the operations the product team would later automate.',
+    projects: ['Jatrikoi', 'Shuttle Website', 'Internal Reporting Panel'],
     points: [
       'Worked alongside driver, operations, and finance teams on the day-to-day running of the marketplace, building the process knowledge that shaped the Partner App and Partner ERP after promotion to Product Specialist.',
+    ],
+  },
+  {
+    company: 'ACI Motors Ltd', url: 'https://acimotors-bd.com/', role: 'Network Development Intern',
+    period: 'Jan 2021 - Apr 2021', location: 'Dhaka, Bangladesh',
+    points: [
+      'Streamlined payment tracking in Distributors Network, reducing manual efforts and easing product resale.',
+      "Contributed to Foton Motors' Network Development at ACI Motors, the exclusive distributor for FOTON Motor Group.",
     ],
   },
 ];
@@ -149,6 +158,7 @@ export const additionalProjects = [
   },
   {
     id:'analysis', icon:'growth', title:'Customer Purchase Analysis', category:'Data & analytics', company:'Lamar University', status:'Completed university project',
+    link:'https://github.com/enadmahamood123-boop/Customer_Purchase_Behavior_Analysis', linkLabel:'View the project on GitHub',
     summary:'Explored customer segments, product performance, spending, and subscription trends using Python and SQL.',
     result:'Analysis → Power BI dashboard', context:'A customer purchase behavior analysis completed at Lamar University.',
     sections:[['Explore the data','I analyzed spending patterns, customer segments, product performance, and subscription trends with Python and SQL.'],['Make the findings usable','I built a Power BI dashboard and a written report from the findings.']],
@@ -156,12 +166,12 @@ export const additionalProjects = [
 ];
 
 export const education = [
-  { degree:'MS in Management Information Systems', school:'Lamar University', location:'Beaumont, Texas, USA', period:'Jan 2025 – Dec 2026 (Expected)', gpa:'3.88 / 4.00', current:true },
-  { degree:'BBA in Management Studies', school:'Bangladesh University of Professionals', location:'Dhaka, Bangladesh', period:'Jan 2017 – May 2021', gpa:'3.43 / 4.00' },
+  { degree:'MS in Management Information Systems', school:'Lamar University', url:'https://www.lamar.edu/', location:'Beaumont, Texas, USA', period:'Jan 2025 – Dec 2026 (Expected)', gpa:'3.88 / 4.00', current:true },
+  { degree:'BBA in Management Studies', school:'Bangladesh University of Professionals', url:'https://bup.edu.bd/department_home/10', location:'Dhaka, Bangladesh', period:'Jan 2017 – May 2021', gpa:'3.43 / 4.00' },
 ];
 export const certifications = [
-  {title:'Exploring Planning Processes in SAP IBP',issuer:'SAP',date:'September 2026'},
-  {title:'Exploring SAP Analytics Cloud',issuer:'SAP',date:'October 2025'},
+  {title:'Exploring Planning Processes in SAP IBP',issuer:'SAP',date:'September 2026',url:'https://badger.learning.sap.com/verify/xopak-sesuh-tunyh-sykug-dogif'},
+  {title:'Exploring SAP Analytics Cloud',issuer:'SAP',date:'October 2025',url:'https://badger.learning.sap.com/verify/xobor-pilyl-gydyr-kabop-nenik'},
 ];
 export const awards = [
   {title:'In-State Tuition Waiver',context:'Lamar University · All four semesters'},

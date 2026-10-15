@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import JourneyVisual from './JourneyVisuals';
 import { Lightbulb, ListChecks, PanelsTopLeft, Code2, Rocket, ChartNoAxesCombined, ArrowRight, Check, Pause, Play, Repeat2 } from 'lucide-react';
 
 const stages = [
@@ -48,6 +49,7 @@ export default function ProductJourney() {
           <div className="journey-timer" aria-hidden="true"><span onAnimationEnd={event => { if (event.target===event.currentTarget && running) setStage(value => (value+1)%stages.length); }} /></div>
         </div>
       </div>
+      <JourneyVisual stage={stage} />
     </div>
     <div className="journey-loop"><Repeat2 size={19} strokeWidth={1.5} aria-hidden="true" /><p>{current.next}</p></div>
   </aside>;

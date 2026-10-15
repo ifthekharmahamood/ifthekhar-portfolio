@@ -9,7 +9,7 @@ export function MoreProjects({ onSelect }) {
   return <section className="more-projects" id="more-projects" aria-labelledby="more-projects-title"><div className="container"><div className="section-heading" data-reveal><h2 id="more-projects-title">More Projects</h2></div><div className="project-grid">{additionalProjects.map((project,index)=>{
     const Icon=projectIcons[project.icon];
     return <article className="project-card" key={project.id} data-reveal><div className="project-card-top"><Icon size={28} strokeWidth={1.4} aria-hidden="true"/><span className="project-status">{project.status}</span></div><p className="eyebrow">0{index+4} / {project.category}</p><h3>{project.title}</h3><p className="project-description">{project.summary}</p><p className="project-result">{project.result}</p><button className="text-link" onClick={()=>onSelect(project)}>Read the project story <ArrowUpRight size={18} aria-hidden="true"/></button></article>;
-  })}</div><a className="chapter-next text-link" href="#experience">Experience <ArrowDown size={18} aria-hidden="true"/></a></div></section>;
+  })}</div></div></section>;
 }
 
 // Vertical timeline with a scroll-tracking rail: a hairline spine, numbered markers
@@ -58,7 +58,7 @@ export function ExperienceSection(){
                 {item.status && <span className="timeline-status">{item.status}</span>}
               </div>
               <h3>{item.role}</h3>
-              <p className="timeline-company">{item.company}{item.location && <span> · {item.location}</span>}</p>
+              <p className="timeline-company">{item.url ? <a href={item.url} target="_blank" rel="noreferrer">{item.company}<ArrowUpRight size={14} aria-hidden="true" /></a> : item.company}{item.location && <span> · {item.location}</span>}</p>
               {item.promotedFrom && <p className="timeline-promotion"><ArrowUp size={14} aria-hidden="true" />{item.promotedFrom}</p>}
               {item.blurb && <p className="timeline-text">{item.blurb}</p>}
               {item.points?.length > 0 && <ul className="timeline-points">{item.points.map(point => <li key={point}>{point}</li>)}</ul>}
@@ -72,11 +72,11 @@ export function ExperienceSection(){
 }
 
 export function EducationSection(){
-  return <section id="education" className="education-section" aria-labelledby="education-title"><div className="container"><div className="section-heading" data-reveal><h2 id="education-title">Education</h2></div><div className="education-grid">{education.map(school=><article key={school.school} className="education-card" data-reveal><GraduationCap size={32} strokeWidth={1.3} aria-hidden="true"/><p className="eyebrow">{school.current?'Current chapter':'Foundation'}</p><h3>{school.degree}</h3><p className="school-name">{school.school}</p><p>{school.location}</p><p>{school.period}</p><p className="degree-gpa">CGPA {school.gpa}</p></article>)}</div></div></section>;
+  return <section id="education" className="education-section" aria-labelledby="education-title"><div className="container"><div className="section-heading" data-reveal><h2 id="education-title">Education</h2></div><div className="education-grid">{education.map(school=><article key={school.school} className="education-card" data-reveal><GraduationCap size={32} strokeWidth={1.3} aria-hidden="true"/><p className="eyebrow">{school.current?'Current chapter':'Foundation'}</p><h3>{school.degree}</h3><p className="school-name">{school.url ? <a href={school.url} target="_blank" rel="noreferrer">{school.school}<ArrowUpRight size={14} aria-hidden="true" /></a> : school.school}</p><p>{school.location}</p><p>{school.period}</p><p className="degree-gpa">CGPA {school.gpa}</p></article>)}</div></div></section>;
 }
 
 export function CertificationsSection(){
-  return <section id="certifications" className="certifications-section" aria-labelledby="certifications-title"><div className="container"><div className="section-heading" data-reveal><h2 id="certifications-title">Certifications</h2></div><div className="certification-list">{certifications.map(item=><article key={item.title} data-reveal><Award size={31} strokeWidth={1.3} aria-hidden="true"/><div><h3>{item.title}</h3><p>{item.issuer} · {item.date}</p></div></article>)}</div></div></section>;
+  return <section id="certifications" className="certifications-section" aria-labelledby="certifications-title"><div className="container"><div className="section-heading" data-reveal><h2 id="certifications-title">Certifications</h2></div><div className="certification-list">{certifications.map(item=><article key={item.title} data-reveal><Award size={31} strokeWidth={1.3} aria-hidden="true"/><div><h3>{item.url ? <a href={item.url} target="_blank" rel="noreferrer">{item.title}<ArrowUpRight size={15} aria-hidden="true" /></a> : item.title}</h3><p>{item.issuer} · {item.date}</p></div></article>)}</div></div></section>;
 }
 
 export function AwardsSection(){
