@@ -27,6 +27,24 @@ Live files in `redesign/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (tenth pass)
+
+- **Selected Work CTA** is now "See how I did it" on all three cards, replacing
+  "Explore the case study". One shared string, so the three cannot drift.
+- **Case panel kicker** added: "Project snapshot - 1 min read", confirming
+  what the button promised. Checked the claim rather than assuming it: the
+  three case studies run 95, 100 and 111 words, so all are genuinely under a
+  minute. `.case-top` switched to `align-items:flex-start` since its left
+  side is now two lines.
+- **Time Warp outcome rewritten** to "When I left in December 2024, the app
+  had 5M+ downloads, a 4.0 rating and 23,600+ reviews." The previous wording
+  hedged about resume figures versus live store statistics.
+- **Experience and More Projects swapped.** Career history now precedes the
+  smaller projects, which is the order a PM recruiter screens in. Experience
+  keeps its full length at the owner's direction.
+
+---
+
 ## Session — 15 October 2026 (ninth pass)
 
 Hero simplified on the owner's direction — it had accumulated three competing

@@ -24,7 +24,7 @@ export const stories = [
     sections: [
       ['The product choice', 'While the category kept adding filters, I cut the app to two effects and rebuilt the journey into a single shoot, edit, and export flow.'],
       ['Working with engineering', 'When a design dispute emerged, I asked which elements were expensive rather than defending the specification. We removed two costly animations that carried no measurable value.'],
-      ['The outcome', 'The app reached 5M+ downloads, with a 4.0 rating across 23,600+ reviews as recorded in my resume. These are historical resume figures, rather than live store statistics.'],
+      ['The outcome', 'When I left in December 2024, the app had 5M+ downloads, a 4.0 rating and 23,600+ reviews.'],
     ],
   },
   {
