@@ -28,6 +28,37 @@ Live files in `portfolio/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (seventeenth pass)
+
+**Added the Bohubrihi "Digital Product Management" certification** (March 2024)
+with its seven skills, linking to the Cloudinary PDF. URL checked: HTTP 200,
+`application/pdf`, 119 KB.
+
+Skills render as chips under the certification, mirroring the Projects
+treatment in Experience — `.cert-skills` copies `.timeline-projects` rule for
+rule (same left rule, same uppercase label, same cream chip on sage), so the
+two sections read as one system rather than two inventions.
+
+Skill order was changed from the LinkedIn screenshot's: the four "Product ..."
+entries are grouped first, then methodology, testing and post-launch. All seven
+are present; only the sequence differs.
+
+**Grid fix.** Three cards in a two-column grid left the tall new card stranded
+beside an empty cell — the same dead-space problem flagged in Experience the
+pass before. `.certification-list article:has(.cert-skills)` spans both
+columns, so the chips fit on one row instead of three and the card is 291px
+rather than 333px. `:has()` is Chrome 105+/Safari 15.4+/Firefox 121+; where it
+is unsupported the card simply stays single-column, which still reads fine.
+
+Position is correct without intervention: March 2024 sits last under the
+newest-first convention already used by Experience and Education.
+
+Verified at desktop, tablet and phone: all three certifications render, 7 chips
+present, zero overflow, zero console errors, the new link carries
+`rel="noreferrer"`, build passes.
+
+---
+
 ## Session — 15 October 2026 (sixteenth pass)
 
 **Experience timeline now uses the full container width.** `.timeline-text` was

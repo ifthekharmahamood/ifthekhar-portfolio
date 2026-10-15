@@ -180,6 +180,7 @@ export const education = [
 export const certifications = [
   {title:'Exploring Planning Processes in SAP IBP',issuer:'SAP',date:'September 2026',url:'https://badger.learning.sap.com/verify/xopak-sesuh-tunyh-sykug-dogif'},
   {title:'Exploring SAP Analytics Cloud',issuer:'SAP',date:'October 2025',url:'https://badger.learning.sap.com/verify/xobor-pilyl-gydyr-kabop-nenik'},
+  {title:'Digital Product Management',issuer:'Bohubrihi',date:'March 2024',url:'https://res.cloudinary.com/bohubrihi/image/upload/v1710181188/production/65ef4b4070ba638bb613ff34.pdf',skills:['Product Strategy','Product Management','Product Development','Product Launch Planning','Software Development Methodologies','Hypothesis Testing','Post launch']},
 ];
 export const awards = [
   {title:'In-State Tuition Waiver',context:'Lamar University · All four semesters'},

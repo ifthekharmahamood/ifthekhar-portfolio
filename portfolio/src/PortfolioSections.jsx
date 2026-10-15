@@ -78,7 +78,7 @@ export function EducationSection(){
 }
 
 export function CertificationsSection(){
-  return <section id="certifications" className="certifications-section" aria-labelledby="certifications-title"><div className="container"><div className="section-heading" data-reveal><h2 id="certifications-title">Certifications</h2></div><div className="certification-list">{certifications.map(item=><article key={item.title} data-reveal><Award size={31} strokeWidth={1.3} aria-hidden="true"/><div><h3>{item.url ? <a href={item.url} target="_blank" rel="noreferrer">{item.title}<ArrowUpRight size={15} aria-hidden="true" /></a> : item.title}</h3><p>{item.issuer} · {item.date}</p></div></article>)}</div></div></section>;
+  return <section id="certifications" className="certifications-section" aria-labelledby="certifications-title"><div className="container"><div className="section-heading" data-reveal><h2 id="certifications-title">Certifications</h2></div><div className="certification-list">{certifications.map(item=><article key={item.title} data-reveal><Award size={31} strokeWidth={1.3} aria-hidden="true"/><div><h3>{item.url ? <a href={item.url} target="_blank" rel="noreferrer">{item.title}<ArrowUpRight size={15} aria-hidden="true" /></a> : item.title}</h3><p>{item.issuer} · {item.date}</p>{item.skills?.length > 0 && <div className="cert-skills"><p className="cert-skills-label">Skills</p><ul>{item.skills.map(skill => <li key={skill}>{skill}</li>)}</ul></div>}</div></article>)}</div></div></section>;
 }
 
 export function AwardsSection(){
