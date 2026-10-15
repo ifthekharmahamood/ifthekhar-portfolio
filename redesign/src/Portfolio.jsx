@@ -11,6 +11,16 @@ gsap.registerPlugin(ScrollTrigger);
 const prefersReduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const navigation = [ ['Process', '#process'], ['Projects', '#projects'], ['Experience', '#experience'], ['Education', '#education'], ['Certifications', '#certifications'], ['Awards', '#awards'], ['Hobbies', '#hobbies'], ['Contact', '#contact'] ];
 
+// Serves the WebP produced by scripts/optimize-images.mjs, falling back to the
+// original file wherever WebP is unsupported. Same pixels, far fewer bytes.
+function Picture({ src, className, ...rest }) {
+  const webp = src.replace(/\.(png|jpe?g)$/i, '.webp');
+  return <picture className={className}>
+    {webp !== src && <source srcSet={webp} type="image/webp" />}
+    <img src={src} {...rest} />
+  </picture>;
+}
+
 function Counter({ metric }) {
   return <div className="outcome" data-reveal><p className="outcome-number" aria-label={metric.spoken}><span aria-hidden="true">{metric.prefix}<span data-counter data-target={metric.value} data-decimals={metric.decimals || 0}>{metric.value}</span>{metric.suffix}</span></p><p className="outcome-label">{metric.label}</p></div>;
 }
@@ -62,7 +72,7 @@ function CaseStudy({ selected, onClose }) {
 
 export default function Portfolio() {
   const scope = useRef(null), progress = useRef(null);
-  const [menuOpen,setMenuOpen] = useState(false), [active,setActive] = useState(''), [selected,setSelected] = useState(null), [resumeOpen,setResumeOpen] = useState(false), [showTop,setShowTop] = useState(false);
+  const [menuOpen,setMenuOpen] = useState(false), [active,setActive] = useState(''), [selected,setSelected] = useState(null), [resumeOpen,setResumeOpen] = useState(false), [showTop,setShowTop] = useState(false), [atBottom,setAtBottom] = useState(false);
   usePortfolioMotion(scope);
   useEffect(() => {
     let frame = 0;
@@ -74,6 +84,7 @@ export default function Portfolio() {
       progress.current.style.transform=`scaleX(${max>0 ? window.scrollY/max : 0})`;
       setActive(current);
       setShowTop(window.scrollY > window.innerHeight * 0.9);
+      setAtBottom(max > 0 && window.scrollY >= max - 4);
     };
     const onScroll = () => { if (!frame) frame=requestAnimationFrame(update); };
     update(); window.addEventListener('scroll',onScroll,{ passive:true }); window.addEventListener('resize',onScroll);
@@ -86,10 +97,10 @@ export default function Portfolio() {
     <header className="site-header"><div className="scroll-progress" ref={progress} aria-hidden="true" /><nav className="container nav" aria-label="Primary"><a className="wordmark" href="#top">{person.name}</a><div className="desktop-links">{navigation.map(([label,href]) => <a key={href} href={href} aria-current={active===href ? 'location' : undefined}>{label}</a>)}</div><button type="button" className="resume-link" onClick={() => setResumeOpen(true)}>Resume <ArrowUpRight size={16} aria-hidden="true" /></button><button className="menu-button icon-button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={22} /> : <Menu size={22} />}</button></nav>{menuOpen && <nav id="mobile-navigation" className="mobile-links" aria-label="Mobile">{navigation.map(([label,href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>)}</nav>}</header>
     
     <main id="main">
-      <section id="top" className="hero"><div className="container hero-content"><p className="eyebrow" data-intro>Product Manager</p><h1 data-intro>Ifthekhar Enad<br />Mahamood</h1><p className="hero-lead" data-intro>I build useful products across consumer apps, mobility marketplaces, and enterprise systems.</p><p className="hero-description" data-intro>Four years in product. Now completing an MS in Management Information Systems at Lamar University.</p><div className="hero-actions" data-intro><a className="button" href="#projects">Explore my work <ArrowUpRight size={19} aria-hidden="true" /></a><a className="text-link" href="#contact">Get in touch <ArrowUpRight size={18} aria-hidden="true" /></a></div><p className="location" data-intro><MapPin size={18} aria-hidden="true" /> Beaumont, Texas <span>·</span> Expected Dec 2026</p></div><div className="hero-portrait" data-intro><div className="portrait-frame"><img src="/images/headshot.jpg" alt="Ifthekhar Enad Mahamood" width="900" height="1100" onLoad={event=>{event.currentTarget.closest('.portrait-frame').classList.add('has-photo');}} onError={event=>{event.currentTarget.closest('.portrait-frame').classList.remove('has-photo');}} /><div className="portrait-placeholder" aria-hidden="true"><User size={44} strokeWidth={1.2} /><p>Add your photo</p><code>public/images/headshot.jpg</code></div></div></div><a className="scroll-cue" href="#impact"><ArrowDown size={25} aria-hidden="true" /><span>Scroll to explore</span></a></section>
+      <section id="top" className="hero"><div className="container hero-content"><p className="eyebrow" data-intro>Product Manager</p><h1 data-intro>Ifthekhar Enad<br />Mahamood</h1><p className="hero-lead" data-intro>I build useful products across consumer apps, mobility marketplaces, and enterprise systems.</p><p className="hero-description" data-intro>Four years in product. Now completing an MS in Management Information Systems at Lamar University.</p><div className="hero-actions" data-intro><a className="button" href="#projects">Explore my work <ArrowUpRight size={19} aria-hidden="true" /></a><a className="text-link" href="#contact">Get in touch <ArrowUpRight size={18} aria-hidden="true" /></a></div><p className="location" data-intro><MapPin size={18} aria-hidden="true" /> Beaumont, Texas <span>·</span> Expected Dec 2026</p></div><div className="hero-portrait" data-intro><div className="portrait-frame"><Picture src="/images/headshot.jpg" alt="Ifthekhar Enad Mahamood" width="900" height="1100" decoding="async" onLoad={event=>{event.currentTarget.closest('.portrait-frame').classList.add('has-photo');}} onError={event=>{event.currentTarget.closest('.portrait-frame').classList.remove('has-photo');}} /><div className="portrait-placeholder" aria-hidden="true"><User size={44} strokeWidth={1.2} /><p>Add your photo</p><code>public/images/headshot.jpg</code></div></div></div><a className="scroll-cue" href="#impact"><ArrowDown size={25} aria-hidden="true" /><span>Scroll to explore</span></a></section>
       <section id="impact" className="impact" aria-labelledby="impact-title"><div className="container"><h2 id="impact-title" className="eyebrow" data-reveal>Impact</h2><div className="outcomes">{outcomes.map(metric => <Counter key={metric.label} metric={metric} />)}</div></div></section>
       <section id="process" className="process" aria-labelledby="process-title"><div className="container"><div className="section-heading" data-reveal><h2 id="process-title">Process</h2></div><ProductJourney /></div></section>
-      <section id="projects" className="work" aria-labelledby="work-title"><div className="container"><div className="section-heading" data-reveal><h2 id="work-title">Selected Work</h2></div>{stories.map((story,index) => <article className={`work-story ${index%2 ? 'reverse' : ''}`} key={story.id}><div className="work-image" data-reveal><img data-parallax src={story.image} alt="" width="1448" height="1086" loading="lazy" /><span className="art-caption">Concept illustration</span></div><div className="work-copy" data-reveal><p className="eyebrow">0{index+1} / {story.category}</p><h3>{story.title}</h3><p className="work-subtitle">{story.heading}</p><p className="work-summary">{story.summary}</p><p className="story-result">{story.result}</p><p className="work-focus">{story.focus}</p><button className="text-link" onClick={() => setSelected(story)}>Explore the case study <ArrowUpRight size={19} aria-hidden="true" /></button></div></article>)}</div></section>
+      <section id="projects" className="work" aria-labelledby="work-title"><div className="container"><div className="section-heading" data-reveal><h2 id="work-title">Selected Work</h2></div>{stories.map((story,index) => <article className={`work-story ${index%2 ? 'reverse' : ''}`} key={story.id}><div className="work-image" data-reveal><Picture data-parallax src={story.image} alt="" width="1448" height="1086" loading="lazy" decoding="async" /><span className="art-caption">Concept illustration</span></div><div className="work-copy" data-reveal><p className="eyebrow">0{index+1} / {story.category}</p><h3>{story.title}</h3><p className="work-subtitle">{story.heading}</p><p className="work-summary">{story.summary}</p><p className="story-result">{story.result}</p><p className="work-focus">{story.focus}</p><button className="text-link" onClick={() => setSelected(story)}>Explore the case study <ArrowUpRight size={19} aria-hidden="true" /></button></div></article>)}</div></section>
       <MoreProjects onSelect={setSelected} />
       <ExperienceSection />
       <EducationSection />
@@ -98,8 +109,8 @@ export default function Portfolio() {
       <HobbiesSection />
       <section id="contact" className="contact" aria-labelledby="contact-title"><div className="container"><h2 id="contact-title" data-reveal>Contact</h2><p className="contact-lead" data-reveal>I’m exploring product management opportunities and would love to hear about the problems your team is working on.</p><div className="contact-actions" data-reveal><a className="button" href={`mailto:${person.email}`}><Mail size={19} aria-hidden="true" /> Say hello</a><a className="text-link" href={person.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={19} aria-hidden="true" /></a><button className="text-link" onClick={() => setResumeOpen(true)}>View resume <ArrowUpRight size={19} aria-hidden="true" /></button></div><a className="email-link" href={`mailto:${person.email}`} data-reveal>{person.email}</a></div></section>
     </main>
-    <footer className="footer"><div className="container"><p>{person.name} <span>· Product Manager</span></p><a href="#top">Back to top <ArrowUp size={17} aria-hidden="true" /></a></div></footer>
-    <button type="button" className={`to-top ${showTop ? 'is-visible' : ''}`} onClick={()=>window.scrollTo({ top:0, behavior:prefersReduced() ? 'auto' : 'smooth' })} aria-label="Back to top"><ArrowUp size={21} aria-hidden="true" /></button>
+    <footer className="footer"><div className="container"><p>{person.name} <span>· Product Manager</span></p></div></footer>
+    <button type="button" className={`to-top ${showTop ? 'is-visible' : ''} ${atBottom ? 'is-labelled' : ''}`} onClick={()=>window.scrollTo({ top:0, behavior:prefersReduced() ? 'auto' : 'smooth' })} aria-label="Back to top"><ArrowUp size={21} aria-hidden="true" /><span className="to-top-label">Back to top</span></button>
     <CaseStudy selected={selected} onClose={() => setSelected(null)} />
     <ResumePreview open={resumeOpen} onClose={() => setResumeOpen(false)} />
   </div>;
