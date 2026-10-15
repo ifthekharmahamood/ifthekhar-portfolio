@@ -1,0 +1,32 @@
+import { chromium } from 'file:///C:/Users/munta1204/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
+const checks=[];
+try {
+ const page=await browser.newPage({viewport:{width:1440,height:900}});
+ await page.goto('http://127.0.0.1:5273/',{waitUntil:'networkidle'});
+ await page.waitForTimeout(1200);
+ const journey=page.locator('.product-journey');
+ const timer=page.locator('.journey-timer span');
+ const first=await timer.evaluate(node=>getComputedStyle(node).transform);
+ await page.waitForTimeout(550);
+ const second=await timer.evaluate(node=>getComputedStyle(node).transform);
+ assert.notEqual(first,second);checks.push('Product journey progress animates while visible');
+ const reveal=page.locator('.work-copy').first();
+ assert.equal(await reveal.evaluate(node=>getComputedStyle(node).opacity),'0');
+ await reveal.scrollIntoViewIfNeeded();await page.waitForTimeout(150);
+ const partial=await reveal.evaluate(node=>Number(getComputedStyle(node).opacity));
+ assert.ok(partial>0&&partial<1);await page.waitForTimeout(1000);
+ assert.equal(await reveal.evaluate(node=>getComputedStyle(node).opacity),'1');checks.push('Work content fades in from hidden through an intermediate opacity to visible');
+ const progress=await page.locator('.scroll-progress').evaluate(node=>getComputedStyle(node).transform);
+ assert.notEqual(progress,'matrix(0, 0, 0, 1, 0, 0)');checks.push('Reading progress advances during scrolling');
+ await page.waitForTimeout(100);
+ assert.equal(await journey.getAttribute('data-running'),'false');
+ const paused=await timer.evaluate(node=>getComputedStyle(node).transform);await page.waitForTimeout(500);
+ assert.equal(await timer.evaluate(node=>getComputedStyle(node).transform),paused);checks.push('Product journey animation pauses offscreen');
+ await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(100);
+ assert.deepEqual(await page.locator('[data-counter]').allTextContents(),['5','21','40']);checks.push('Changing reduced-motion preference restores final counters');
+ await fs.writeFile('redesign/qa/motion-results.json',JSON.stringify({checks,passed:true},null,2));
+ console.log(JSON.stringify({checks,passed:true},null,2));
+} finally {await browser.close();}

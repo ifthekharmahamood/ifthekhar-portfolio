@@ -1,0 +1,240 @@
+{
+  "name": "Ifthekhar Enad Mahamood",
+  "role": "Product Manager  |  Business Systems Analyst",
+  "contact": "Beaumont, TX, USA  |  +1 (409) 363-1645  |  enadmahamood123@gmail.com  |  linkedin.com/in/ifthekhar-pm",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "Summary"
+    },
+    {
+      "type": "paragraph",
+      "text": "Product manager with 4 years across ride-sharing marketplaces, consumer mobile apps, and agriculture B2B. Grew two consumer apps past 5M downloads on Google Play, shipped driver payouts and an internal ERP that raised operations throughput 20%, and owned the acquisition systems for both sides of a marketplace. Works close to the code, writes specifications engineers can build from, and decides from analytics rather than opinion. Completing an MS in Management Information Systems in December 2026."
+    },
+    {
+      "type": "heading",
+      "text": "Selected Impact"
+    },
+    {
+      "type": "paragraph",
+      "text": "5M+ app downloads shipped  ·  50% faster payment processing  ·  40% lower driver onboarding cost  ·  21% core retention lift  ·  20% higher operations throughput"
+    },
+    {
+      "type": "heading",
+      "text": "Education"
+    },
+    {
+      "type": "split",
+      "parts": [
+        "MS in Management Information Systems, Lamar University, Beaumont, TX, USA",
+        "Jan 2025 - Dec 2026 (Expected)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "CGPA 3.88 / 4.00"
+    },
+    {
+      "type": "paragraph",
+      "text": "Awards: In-State Tuition Waiver and College of Business Graduate Scholarship, all four semesters; Janie and Mark Steinhagen Scholarship in Business"
+    },
+    {
+      "type": "split",
+      "parts": [
+        "BBA in Management Studies, Bangladesh University of Professionals, Dhaka, Bangladesh",
+        "Jan 2017 - May 2021 CGPA 3.43 / 4.00"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Certifications"
+    },
+    {
+      "type": "paragraph",
+      "text": "Exploring Planning Processes in SAP IBP, SAP, Sep 2026   |   Exploring SAP Analytics Cloud, SAP, Oct 2025"
+    },
+    {
+      "type": "heading",
+      "text": "Experience"
+    },
+    {
+      "type": "split",
+      "parts": [
+        "Graduate Assistant, SAP Help Desk",
+        "Sep 2026 - Present"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Lamar University, Beaumont, TX, USA"
+    },
+    {
+      "type": "paragraph",
+      "text": "College of Business SAP lab supporting students and faculty across enterprise systems and predictive analytics coursework."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Trains students and faculty on SAP GUI, SAP ERP modules (MM, SD, PS), and SAP Analytics Cloud, diagnosing configuration errors and validating end-to-end project workflows before submission",
+        "Maintains SAP user documentation and license configurations with faculty coordinators, and delivers software demonstrations for enterprise systems and predictive analytics courses"
+      ]
+    },
+    {
+      "type": "split",
+      "parts": [
+        "IT Student Assistant, Lamar University, Beaumont, TX, USA",
+        "Feb 2025 - May 2026"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Handled first-line identity, access, and connectivity issue resolution for students, faculty, and staff, explaining each fix to non-technical users"
+      ]
+    },
+    {
+      "type": "split",
+      "parts": [
+        "Product Manager",
+        "Apr 2024 - Dec 2024"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Kite Games Studio Ltd., Dhaka, Bangladesh"
+    },
+    {
+      "type": "paragraph",
+      "text": "Mobile studio publishing consumer camera and photo apps across US, UK, and Japan. Owned two apps end to end with a cross-functional team of 10+ engineers, QA specialists, and designers."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Grew Time Warp Scan to 5M+ downloads and a 4.0 rating across 23,600+ reviews by cutting the app to two effects against a category adding filters, and rebuilding the journey into one shoot, edit, and export flow",
+        "Lifted core retention 21% and engagement 24% on Beauty Editor: Face Retouch through a full revamp of onboarding and UI, then raised downloads 23% in 3 months through ASO and a post-launch analytics loop",
+        "Increased customer acquisition 10% across the US, UK, and Japan by pairing App Store optimization with product changes drawn from competitor teardowns and user research",
+        "Settled a design dispute with engineering by asking which elements were expensive rather than defending the spec, cutting two costly animations that carried no measurable value"
+      ]
+    },
+    {
+      "type": "split",
+      "parts": [
+        "Product Manager",
+        "Oct 2023 - Feb 2024"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Fashol Dotcom Limited, Dhaka, Bangladesh"
+    },
+    {
+      "type": "paragraph",
+      "text": "Agriculture marketplace sourcing from farmers and supplying B2B retail chains. Product manager across four products with a 5-person engineering and QA team."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Owned the supplier ERP panel for farmer inventory and pricing, specified a supplier and reseller Android app and drove it to test phase, and ran two B2C retail pilots whose operating data decided whether the model could scale",
+        "Defined Smart Shelf, a 0-to-1 automated retail concept, writing the specification and running buyer field research, then presenting the business case to senior management and Singapore-based investors"
+      ]
+    },
+    {
+      "type": "split",
+      "parts": [
+        "Product Specialist",
+        "Jun 2021 - Sep 2023"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Shuttle Technologies BD Ltd., Dhaka, Bangladesh"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ride-sharing and commuter shuttle platform in Dhaka. Product Owner for the Partner App, the internal Partner ERP, and the acquisition systems for both sides of the marketplace, leading 5 engineers and a QA specialist."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Cut driver onboarding cost 40% by shipping a self-serve registration flow, scoped after driver interviews exposed where the manual signup process broke down",
+        "Shipped Driver Earnings, the payouts surface where drivers tracked and received trip income, cutting payment processing time 50% and tripling driver engagement after regional rollout",
+        "Designed the Partner ERP to automate weekly bill disbursement and vehicle requests after documenting the manual process and gathering requirements from driver, operations, and finance stakeholders, raising throughput 20% and removing 50% of the paperwork",
+        "Owned Jatrikoi and Driverkoi as product owner, the customer and driver acquisition systems, building both with the design and engineering teams; Jatrikoi lifted lead generation 20% and team efficiency 15%",
+        "Shipped the rebranded Home and Business pages and phase one of the Partners page on the company website, and integrated Google Analytics, Clarity, and Meta Pixel with marketing to track the user journey"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Shipped Products"
+    },
+    {
+      "type": "split",
+      "parts": [
+        "Time Warp Scan, camera and video effects app, Google Play and App Store",
+        "5M+ downloads  ·  4.0 rating"
+      ]
+    },
+    {
+      "type": "split",
+      "parts": [
+        "Beauty Editor: Face Retouch, photo editing app, Google Play",
+        "50,000+ downloads  ·  4.6 rating"
+      ]
+    },
+    {
+      "type": "split",
+      "parts": [
+        "Partner App and Partner ERP, driver app and internal fleet and billing system, Shuttle",
+        "Earnings, trips, weekly bill runs"
+      ]
+    },
+    {
+      "type": "split",
+      "parts": [
+        "Jatrikoi and Driverkoi, customer and driver acquisition systems, Shuttle",
+        "Lead capture, funnel, service"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Independent Projects"
+    },
+    {
+      "type": "paragraph",
+      "text": "Personal Finance Web App, self-directed"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Building a budgeting and money management web app solo with an AI coding agent, from data model through UI, browser-first and working offline",
+        "Replaced deficit framing in overspend reports with goal-delay framing, so the report shows how much later a goal arrives instead of how much money was lost"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Customer Purchase Behavior Analysis, Lamar University"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Analysed spending patterns, customer segments, product performance, and subscription trends in Python and SQL, and built a Power BI dashboard and written report from the findings"
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Skills"
+    },
+    {
+      "type": "paragraph",
+      "text": "Product: Product discovery, PRDs and requirements, road mapping, prioritization, success metrics, user journey mapping, A/B testing, competitor research, go-to-market, ASO, agile execution"
+    },
+    {
+      "type": "paragraph",
+      "text": "Enterprise Systems and Analysis: SAP ERP (MM, SD, PS), SAP GUI, SAP Analytics Cloud, SAP IBP, ERP and CRM platforms, business process mapping, functional specifications, data validation"
+    },
+    {
+      "type": "paragraph",
+      "text": "Data and Tools: SQL, Python, Excel, Power BI, Tableau, funnel and cohort analysis, Google Analytics, Clarity, Meta Pixel, Jira, Confluence, Figma, Postman, Claude Code"
+    }
+  ]
+}

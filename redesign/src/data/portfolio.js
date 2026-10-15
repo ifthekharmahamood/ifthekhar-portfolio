@@ -1,0 +1,136 @@
+// Facts reconciled with Master_Resume.docx, October 2026.
+export const person = {
+  name: 'Ifthekhar Enad Mahamood', email: 'enadmahamood123@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/ifthekhar-pm',
+  resume: '/Ifthekhar_Enad_Mahamood_Resume.docx',
+};
+export const outcomes = [
+  { value: 5, suffix: 'M+', decimals: 1, label: 'Time Warp Scan downloads', spoken: 'Over 5 million Time Warp Scan downloads' },
+  { value: 21, prefix: '+', suffix: '%', label: 'Beauty Editor core retention', spoken: '21 percent improvement in Beauty Editor core retention' },
+  { value: 40, suffix: '%', label: 'Lower Shuttle onboarding cost', spoken: '40 percent lower Shuttle driver onboarding cost' },
+];
+export const stories = [
+  {
+    id: 'beauty', title: 'Beauty Editor', category: 'Consumer mobile', company: 'Kite Games Studio',
+    image: '/images/beauty-green-cream.png', heading: 'A better first-time experience.',
+    summary: 'Rebuilt onboarding and UI to make the first experience simpler, then used a post-launch analytics loop to guide growth.',
+    result: '+21% core retention', focus: 'Onboarding · Prioritization · Product analytics',
+    link: 'https://play.google.com/store/apps/details?id=com.app.beautyeditor',
+    context: 'At Kite Games Studio, I owned consumer camera and photo apps with a team of 10+ engineers, QA specialists, and designers.',
+    sections: [
+      ['The work', 'I led a full revamp of Beauty Editor’s onboarding and UI. My responsibility spanned product priorities, cross-functional delivery, and evaluating the experience after launch.'],
+      ['The decision', 'I treated the first-time journey as a product problem. The revamp brought onboarding and UI into the same effort, followed by App Store optimization and an analytics loop to guide improvements.'],
+      ['The outcome', 'Core retention improved 21% and engagement increased 24%. Downloads grew 23% in three months. These outcomes are reported in my resume.'],
+    ],
+  },
+  {
+    id: 'shuttle', title: 'Shuttle Partner App', category: 'Mobility marketplace', company: 'Shuttle',
+    image: '/images/shuttle-green-cream.png', heading: 'Less friction for drivers.',
+    summary: 'Driver interviews exposed where manual signup broke down. A self-serve registration flow helped reduce onboarding cost.',
+    result: '40% lower onboarding cost', focus: 'User discovery · MVP delivery · Marketplace operations',
+    link: 'https://play.google.com/store/apps/details?id=com.easytransport.shuttle.driver',
+    context: 'As Product Owner for Shuttle’s Partner App and internal Partner ERP, I led five engineers and a QA specialist, working with drivers, operations, and finance.',
+    sections: [
+      ['Understand the problem', 'Driver interviews revealed failures in the manual signup process. I used those findings to scope a self-serve registration flow.'],
+      ['Make the work easier', 'The registration flow lowered onboarding cost by 40%. Separately, I shipped Driver Earnings, where drivers tracked and received their trip income. After regional rollout, payment processing was 50% faster and driver engagement tripled.'],
+      ['Connect the systems', 'For Partner ERP, I documented manual processes and gathered driver, operations, and finance requirements. Automating weekly bill disbursement and vehicle requests raised throughput 20% and removed 50% of the paperwork.'],
+    ],
+  },
+  {
+    id: 'timewarp', title: 'Time Warp Scan', category: 'Consumer mobile', company: 'Kite Games Studio',
+    image: '/images/timewarp-green-cream.png', heading: 'Simpler tools. More room to create.',
+    summary: 'Focused the app on two effects and rebuilt a single shoot, edit, and export flow in a category that kept adding filters.',
+    result: '5M+ downloads', focus: 'Product focus · User journeys · Cross-functional delivery',
+    link: 'https://play.google.com/store/apps/details?id=com.kgs.timewarpscan',
+    context: 'Time Warp Scan is a camera and video effects app published by Kite Games Studio. I managed it during my April–December 2024 product management role.',
+    sections: [
+      ['The product choice', 'While the category kept adding filters, I cut the app to two effects and rebuilt the journey into a single shoot, edit, and export flow.'],
+      ['Working with engineering', 'When a design dispute emerged, I asked which elements were expensive rather than defending the specification. We removed two costly animations that carried no measurable value.'],
+      ['The outcome', 'The app reached 5M+ downloads, with a 4.0 rating across 23,600+ reviews as recorded in my resume. These are historical resume figures, rather than live store statistics.'],
+    ],
+  },
+];
+// One timeline, newest first. University roles are merged in by date rather than
+// living in a separate "learning in practice" block.
+export const career = [
+  {
+    company: 'Lamar University', role: 'Graduate Assistant, SAP Help Desk',
+    period: 'Sep 2026 – Present', status: 'Current', location: 'Beaumont, Texas',
+    text: 'Training students and faculty on SAP GUI, ERP modules, and SAP Analytics Cloud; supporting enterprise-systems and predictive-analytics coursework.',
+  },
+  {
+    company: 'Lamar University', role: 'IT Student Assistant',
+    period: 'Feb 2025 – May 2026', location: 'Beaumont, Texas',
+    text: 'Helped students, faculty, and staff resolve identity, access, and connectivity issues, explaining each fix in clear language.',
+  },
+  {
+    company: 'Kite Games Studio', role: 'Product Manager',
+    period: 'Apr – Dec 2024', location: 'Dhaka, Bangladesh',
+    text: 'Owned consumer apps end to end, bringing product focus, onboarding improvements, and analytics into delivery with a team of 10+.',
+  },
+  {
+    company: 'Fashol', role: 'Product Manager',
+    period: 'Oct 2023 – Feb 2024', location: 'Dhaka, Bangladesh',
+    text: 'Worked across supplier systems, an Android app taken to test phase, and two B2C retail pilots. Defined the Smart Shelf concept through buyer research, specifications, and its business case.',
+  },
+  {
+    company: 'Shuttle', role: 'Product Specialist',
+    period: 'Jun 2021 – Sep 2023', location: 'Dhaka, Bangladesh',
+    text: 'Owned the Partner App, Partner ERP, and acquisition systems for both sides of a mobility marketplace. Jatrikoi increased lead generation 20% and team efficiency 15%.',
+  },
+];
+
+export const additionalProjects = [
+  {
+    id:'erp', icon:'systems', title:'Partner ERP', category:'Enterprise systems', company:'Shuttle', status:'Shipped',
+    summary:'Automated weekly bill disbursement and vehicle requests after mapping the manual process with drivers, operations, and finance.',
+    result:'20% higher throughput', context:'An internal fleet and billing system designed around the people running Shuttle’s daily operations.',
+    sections:[['Start with the process','I documented the manual process and gathered requirements from driver, operations, and finance stakeholders.'],['Connect the workflow','The Partner ERP automated weekly bill disbursement and vehicle requests.'],['The outcome','Operations throughput increased 20%, and 50% of the paperwork was removed.']],
+  },
+  {
+    id:'acquisition', icon:'growth', title:'Jatrikoi & Driverkoi', category:'Marketplace acquisition', company:'Shuttle', status:'Shipped',
+    summary:'Owned the customer and driver acquisition systems, working with design and engineering to connect lead capture, funnels, and service.',
+    result:'20% more leads through Jatrikoi', context:'Product Owner for both sides of the marketplace’s acquisition systems.',
+    sections:[['Two sides of the marketplace','Jatrikoi supported customer acquisition, while Driverkoi supported driver acquisition. I built both with the design and engineering teams.'],['The outcome','Jatrikoi improved lead generation 20% and team efficiency 15%.'],['Related work','I also shipped rebranded website pages and worked with marketing to integrate Google Analytics, Clarity, and Meta Pixel for user-journey tracking.']],
+  },
+  {
+    id:'supplier', icon:'systems', title:'Supplier products', category:'Agriculture B2B', company:'Fashol', status:'ERP panel · App test phase',
+    summary:'Owned the supplier ERP panel for farmer inventory and pricing, and specified a supplier and reseller Android app taken to test phase.',
+    result:'Inventory, pricing & supplier workflows', context:'Fashol sourced produce from farmers and supplied B2B retail chains. I worked across four products with a five-person engineering and QA team.',
+    sections:[['The supplier workflow','I owned the ERP panel that handled farmer inventory and pricing.'],['A mobile extension','I specified a supplier and reseller Android app and drove it to test phase.'],['Learn from operations','I also ran two B2C retail pilots whose operating data helped decide whether the model could scale.']],
+  },
+  {
+    id:'shelf', icon:'concept', title:'Smart Shelf', category:'Retail concept', company:'Fashol', status:'Concept & business case',
+    summary:'Defined an automated retail concept through buyer field research, specifications, and a business case for management and investors.',
+    result:'From buyer research to business case', context:'A zero-to-one automated retail concept at Fashol. Its concept definition is distinct from the company’s separate B2C pilots.',
+    sections:[['Understand the buyer','I ran buyer field research to inform the concept.'],['Define the product','I wrote the specification for Smart Shelf and prepared its business case.'],['Align stakeholders','I presented the case to senior management and Singapore-based investors. This work covered concept research, specifications, and the business case.']],
+  },
+  {
+    id:'finance', icon:'finance', title:'Personal Finance Web App', category:'Independent project', company:'Self-directed', status:'In progress',
+    summary:'Building a browser-first, offline-capable budgeting app solo, from the data model through the interface.',
+    result:'A different way to explain overspending', context:'An independent budgeting and money-management web app being built with an AI coding agent.',
+    sections:[['Build end to end','I am building the data model and UI for a browser-first app that works offline.'],['The product decision','I replaced deficit framing in overspending reports with goal-delay framing. The report explains how much later a goal arrives rather than how much money was lost.'],['Current status','The app is in progress.']],
+  },
+  {
+    id:'analysis', icon:'growth', title:'Customer Purchase Analysis', category:'Data & analytics', company:'Lamar University', status:'Completed university project',
+    summary:'Explored customer segments, product performance, spending, and subscription trends using Python and SQL.',
+    result:'Analysis → Power BI dashboard', context:'A customer purchase behavior analysis completed at Lamar University.',
+    sections:[['Explore the data','I analyzed spending patterns, customer segments, product performance, and subscription trends with Python and SQL.'],['Make the findings usable','I built a Power BI dashboard and a written report from the findings.']],
+  },
+];
+
+export const education = [
+  { degree:'MS in Management Information Systems', school:'Lamar University', location:'Beaumont, Texas, USA', period:'Jan 2025 – Dec 2026 (Expected)', gpa:'3.88 / 4.00', current:true },
+  { degree:'BBA in Management Studies', school:'Bangladesh University of Professionals', location:'Dhaka, Bangladesh', period:'Jan 2017 – May 2021', gpa:'3.43 / 4.00' },
+];
+export const certifications = [
+  {title:'Exploring Planning Processes in SAP IBP',issuer:'SAP',date:'September 2026'},
+  {title:'Exploring SAP Analytics Cloud',issuer:'SAP',date:'October 2025'},
+];
+export const awards = [
+  {title:'In-State Tuition Waiver',context:'Lamar University · All four semesters'},
+  {title:'College of Business Graduate Scholarship',context:'Lamar University · All four semesters'},
+  {title:'Janie and Mark Steinhagen Scholarship in Business',context:'Lamar University'},
+];
+// Personal interests supplied by the user on October 14, 2026.
+export const hobbies = ['Books','Photography','Travelling','Soccer','Camping','Cycling'];
