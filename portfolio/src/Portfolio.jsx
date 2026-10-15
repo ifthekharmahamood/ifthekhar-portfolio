@@ -81,6 +81,17 @@ function usePortfolioMotion(scope) {
   }, [scope]);
 }
 
+// Reading time from the words actually in the panel, so the claim stays true
+// if the copy is edited. 220 wpm, rounded to the nearest 10s below a minute.
+function readingTime(item) {
+  if (!item) return '';
+  const text = [item.context, item.result, ...(item.sections || []).flat()].filter(Boolean).join(' ');
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  const seconds = (words / 220) * 60;
+  if (seconds < 50) return `${Math.max(10, Math.round(seconds / 10) * 10)} sec read`;
+  return `${Math.max(1, Math.round(seconds / 60))} min read`;
+}
+
 function CaseStudy({ selected, onClose }) {
   const dialog = useRef(null);
   useEffect(() => {
@@ -90,7 +101,7 @@ function CaseStudy({ selected, onClose }) {
     return () => { document.body.classList.remove('dialog-open'); if (node.open) node.close(); };
   }, [selected]);
   return <dialog ref={dialog} className="case-dialog" aria-labelledby="case-title" onCancel={onClose} onClose={onClose} onClick={event => { if (event.target === dialog.current) onClose(); }}>
-    {selected && <div className="case-content"><div className="case-top"><div><p className="case-kicker">Project snapshot <span>·</span> 1 min read</p><span className="eyebrow">{selected.company} / {selected.category}</span></div><button className="icon-button" aria-label="Close case study" onClick={onClose}><X size={23} /></button></div><h2 id="case-title">{selected.title}</h2><p className="case-lead">{selected.context}</p><p className="case-result">{selected.result}</p>{selected.sections.map(([title,text]) => <section key={title}><h3>{title}</h3><p>{text}</p></section>)}{selected.link && <a className="text-link" href={selected.link} target="_blank" rel="noreferrer">{selected.linkLabel || 'View the current app listing'} <ArrowUpRight size={18} aria-hidden="true" /></a>}</div>}
+    {selected && <div className="case-content"><div className="case-top"><div><p className="case-kicker">Project snapshot <span>·</span> {readingTime(selected)}</p><span className="eyebrow">{selected.company} / {selected.category}</span></div><button className="icon-button" aria-label="Close case study" onClick={onClose}><X size={23} /></button></div><h2 id="case-title">{selected.title}</h2><p className="case-lead">{selected.context}</p><p className="case-result">{selected.result}</p>{selected.sections.map(([title,text]) => <section key={title}><h3>{title}</h3><p>{text}</p></section>)}{selected.link && <a className="text-link" href={selected.link} target="_blank" rel="noreferrer">{selected.linkLabel || 'View the current app listing'} <ArrowUpRight size={18} aria-hidden="true" /></a>}</div>}
   </dialog>;
 }
 

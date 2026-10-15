@@ -28,6 +28,39 @@ Live files in `portfolio/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (eighteenth pass)
+
+**Panel reading time is now computed, not hardcoded.** The kicker said
+"1 min read" for every project because the string was fixed in `CaseStudy`.
+Measured at 220 wpm, the real figures were:
+
+- Selected Work: 95-111 words = 26-30s
+- More Projects: 44-78 words = **12-20s**
+
+So the claim overstated every panel, and roughly tripled the shorter ones.
+
+Added `readingTime(item)` in `Portfolio.jsx`, which counts the words actually
+rendered (`context`, `result` and every `sections` entry), divides by 220 wpm,
+and renders seconds rounded to the nearest 10 below the 50s mark, minutes
+above. The label now tracks the copy, so editing a panel cannot make the claim
+false again — the previous fixed string is exactly how this drifted.
+
+Resulting labels, all verified in-browser by opening each of the nine dialogs:
+
+- Time Warp Scan, Beauty Editor, Shuttle Partner App: **30 sec read**
+- Partner ERP, Jatrikoi & Driverkoi, Supplier products, Smart Shelf,
+  Personal Finance Web App: **20 sec read**
+- Customer Purchase Analysis: **10 sec read**
+
+The longer label stays on one line (19px tall) at both 1512px and 390px.
+
+Note on verification: two of the nine dialogs first reported "(never opened)",
+both the first item of their loop. That was the probe clicking before the
+scroll settled, not a site fault — re-tested individually with a longer settle,
+both opened correctly. Build passes, zero console errors.
+
+---
+
 ## Session — 15 October 2026 (seventeenth pass)
 
 **Added the Bohubrihi "Digital Product Management" certification** (March 2024)
