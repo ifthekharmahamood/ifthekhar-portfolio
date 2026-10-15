@@ -27,6 +27,6 @@ try {
  assert.equal(await timer.evaluate(node=>getComputedStyle(node).transform),paused);checks.push('Product journey animation pauses offscreen');
  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(100);
  assert.deepEqual(await page.locator('[data-counter]').allTextContents(),['5','21','40']);checks.push('Changing reduced-motion preference restores final counters');
- await fs.writeFile('redesign/qa/motion-results.json',JSON.stringify({checks,passed:true},null,2));
+ await fs.writeFile('portfolio/qa/motion-results.json',JSON.stringify({checks,passed:true},null,2));
  console.log(JSON.stringify({checks,passed:true},null,2));
 } finally {await browser.close();}

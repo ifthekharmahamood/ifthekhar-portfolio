@@ -1,7 +1,7 @@
 import { chromium } from 'file:///C:/Users/munta1204/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
-await fs.mkdir('redesign/qa/screenshots', { recursive:true });
+await fs.mkdir('portfolio/qa/screenshots', { recursive:true });
 const browser = await chromium.launch({ executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe', headless:true });
 const failures = [];
 const report = { errors:[], requests:[], checks:[], counters:[], dimensions:[] };
@@ -13,7 +13,7 @@ try {
   await page.goto('http://127.0.0.1:5273/', { waitUntil:'networkidle' });
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(1300);
-  await page.screenshot({ path:'redesign/qa/screenshots/desktop-hero.png' });
+  await page.screenshot({ path:'portfolio/qa/screenshots/desktop-hero.png' });
   await check('One visible identity heading', async () => assert.equal(await page.locator('h1').textContent(), 'Ifthekhar EnadMahamood'));
   const before = await page.locator('[data-counter]').allTextContents();
   await page.locator('#impact').scrollIntoViewIfNeeded();
@@ -23,10 +23,10 @@ try {
   const final = await page.locator('[data-counter]').allTextContents();
   report.counters.push({ before, intermediate, final });
   await check('Counters visibly advance and finish at the correct values', async () => { assert.deepEqual(final,['5','21','40']); assert.ok(intermediate.some((value,index) => value !== final[index]),'No intermediate counter value observed'); });
-  await page.screenshot({ path:'redesign/qa/screenshots/desktop-impact.png' });
+  await page.screenshot({ path:'portfolio/qa/screenshots/desktop-impact.png' });
   await page.getByRole('button',{ name:'Explore the case study' }).first().click();
   await check('Case study opens', async () => assert.equal(await page.locator('.case-dialog').evaluate(node => node.open),true));
-  await page.screenshot({ path:'redesign/qa/screenshots/desktop-case-study.png' });
+  await page.screenshot({ path:'portfolio/qa/screenshots/desktop-case-study.png' });
   await page.keyboard.press('Escape');
   await check('Escape closes dialog and returns focus to its opener', async () => {
     assert.equal(await page.locator('.case-dialog').evaluate(node => node.open),false);
@@ -40,7 +40,7 @@ try {
     const text=await page.locator('.resume-sheet').innerText();
     for(const value of ['3.88','3.43','Exploring Planning Processes in SAP IBP','Janie and Mark Steinhagen','Claude Code','Customer Purchase Behavior Analysis'])assert.ok(text.includes(value),value);
   });
-  await page.screenshot({path:'redesign/qa/screenshots/resume-popup.png'});
+  await page.screenshot({path:'portfolio/qa/screenshots/resume-popup.png'});
   await page.keyboard.press('Escape');
   await check('Resume closes and returns focus',async()=>{assert.equal(await page.locator('.resume-dialog').evaluate(node=>node.open),false);assert.equal(await page.locator('.resume-link').evaluate(node=>node===document.activeElement),true);});
   await check('New sections and navigation are complete',async()=>{
@@ -63,11 +63,11 @@ try {
     report.dimensions.push(dimensions);
     await check(`No horizontal overflow at ${width}px`,async()=>assert.ok(dimensions.scrollWidth<=width,`${dimensions.scrollWidth}px exceeds ${width}px`));
     if(width===390) {
-      await page.screenshot({path:'redesign/qa/screenshots/mobile-hero.png'});
+      await page.screenshot({path:'portfolio/qa/screenshots/mobile-hero.png'});
       await page.getByRole('button',{name:'Open navigation'}).click();
       await check('Mobile navigation opens and follows Projects',async()=>{assert.equal(await page.locator('#mobile-navigation').isVisible(),true);await page.locator('#mobile-navigation').getByRole('link',{name:'Projects',exact:true}).click();await page.waitForTimeout(900);assert.equal(await page.locator('#mobile-navigation').count(),0);assert.equal(new URL(page.url()).hash,'#projects');});
-      await page.screenshot({path:'redesign/qa/screenshots/mobile-work.png'});
-      await page.getByRole('button',{name:'Resume',exact:true}).click();await page.screenshot({path:'redesign/qa/screenshots/mobile-resume.png'});await page.keyboard.press('Escape');
+      await page.screenshot({path:'portfolio/qa/screenshots/mobile-work.png'});
+      await page.getByRole('button',{name:'Resume',exact:true}).click();await page.screenshot({path:'portfolio/qa/screenshots/mobile-resume.png'});await page.keyboard.press('Escape');
     }
   }
   await page.emulateMedia({reducedMotion:'reduce'});
@@ -79,14 +79,14 @@ try {
   });
   for(const section of ['#impact','#projects','#more-projects','#experience','#education','#certifications','#awards','#hobbies','#contact']) {await page.locator(section).scrollIntoViewIfNeeded();await page.waitForTimeout(100);}
   await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
-  await page.screenshot({path:'redesign/qa/screenshots/desktop-full-reduced-motion.png',fullPage:true});
-  for(const id of ['more-projects','education','certifications','awards','hobbies']){await page.locator(`#${id}`).scrollIntoViewIfNeeded();await page.screenshot({path:`redesign/qa/screenshots/${id}.png`});}
+  await page.screenshot({path:'portfolio/qa/screenshots/desktop-full-reduced-motion.png',fullPage:true});
+  for(const id of ['more-projects','education','certifications','awards','hobbies']){await page.locator(`#${id}`).scrollIntoViewIfNeeded();await page.screenshot({path:`portfolio/qa/screenshots/${id}.png`});}
   await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
   await page.setViewportSize({width:1440,height:1800});
-  await page.screenshot({path:'redesign/qa/screenshots/desktop-comparison.png'});
+  await page.screenshot({path:'portfolio/qa/screenshots/desktop-comparison.png'});
   await check('No runtime errors',async()=>assert.deepEqual(report.errors,[]));
   await check('No failed site asset requests',async()=>assert.deepEqual(report.requests.filter(item=>item.url.startsWith('http://127.0.0.1:5273')),[]));
-  await fs.writeFile('redesign/qa/results.json',JSON.stringify(report,null,2));
+  await fs.writeFile('portfolio/qa/results.json',JSON.stringify(report,null,2));
   console.log(JSON.stringify(report,null,2));
   if(failures.length) process.exitCode=1;
 } finally { await browser.close(); }

@@ -17,7 +17,7 @@ try {
    report.stages.push({stage:names[index],heading:await page.locator('.journey-scene h2').textContent()});
    await page.waitForTimeout(2300);
    assert.equal(await page.locator('.journey-artifact li').count(),3);
-   if(index===3 || index===5) await page.screenshot({path:`redesign/qa/screenshots/journey-stage-${index+1}.png`});
+   if(index===3 || index===5) await page.screenshot({path:`portfolio/qa/screenshots/journey-stage-${index+1}.png`});
  }
  await page.waitForFunction(()=>document.querySelector('.product-journey').dataset.stage==='0',null,{timeout:9000});
  passed('Autoplay visits all six stages, changes their artifacts, then loops from follow-up to ideation');
@@ -48,7 +48,7 @@ try {
      return {width:innerWidth,scrollWidth:document.documentElement.scrollWidth,overlap:copies.some(copy=>copy.left<journey.right&&copy.right>journey.left&&copy.top<journey.bottom&&copy.bottom>journey.top),bottom:journey.bottom,heroBottom:document.querySelector('.hero').getBoundingClientRect().bottom};
    });
    report.layouts.push(layout);assert.ok(layout.scrollWidth<=width,`Overflow at ${width}`);assert.equal(layout.overlap,false,`Hero overlap at ${width}`);assert.ok(layout.heroBottom>layout.bottom+40,`Journey escapes hero at ${width}`);
-   if(width===1024)await page.screenshot({path:'redesign/qa/screenshots/journey-tablet.png'});
+   if(width===1024)await page.screenshot({path:'portfolio/qa/screenshots/journey-tablet.png'});
  }
  passed('Hero copy and animation remain separate without overflow across 10 viewport widths');
  await page.emulateMedia({reducedMotion:'reduce'});await page.locator('.product-journey').scrollIntoViewIfNeeded();
@@ -59,5 +59,5 @@ try {
  assert.equal(await journey.getAttribute('data-stage'),'1');passed('Reduced motion shows static readable content and keyboard stage exploration works');
  assert.deepEqual(report.errors,[]);passed('No browser runtime errors');
  report.passed=true;
- await fs.writeFile('redesign/qa/journey-results.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
+ await fs.writeFile('portfolio/qa/journey-results.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
 } finally {await browser.close();}

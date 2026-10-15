@@ -14,9 +14,9 @@ Use a light, restrained page with readable typography, generous whitespace, one 
 | --- | --- |
 | `Master_Resume.docx` | Updated professional history, education, certifications, shipped products, independent projects, and decision examples. |
 | `src/` | Original dark charcoal/yellow portfolio with many animated sections, custom cursor, decorative product demonstrations, and facts spread across components. |
-| `redesign/src/` | Separate light/dark editorial version with blue accent, centralized data, a moving metric strip, and product rows/cards linking to external stores. |
-| `redesign/design-system/.../MASTER.md` | Generated guidance conflicts with the implemented palette, fonts, and some of its own rules; do not treat it as the factual design authority. |
-| `public/resume.pdf`, `redesign/public/resume.pdf` | Byte-identical copies. PDF text was not extracted in this review; their consistency with the master resume remains unverified. |
+| `portfolio/src/` | Separate light/dark editorial version with blue accent, centralized data, a moving metric strip, and product rows/cards linking to external stores. |
+| `portfolio/design-system/.../MASTER.md` | Generated guidance conflicts with the implemented palette, fonts, and some of its own rules; do not treat it as the factual design authority. |
+| `public/resume.pdf`, `portfolio/public/resume.pdf` | Byte-identical copies. PDF text was not extracted in this review; their consistency with the master resume remains unverified. |
 | `src/assets/` | React/Vite starter artwork, including the inspected abstract layered graphic; no professional portrait or authentic product screenshots found in the file inventory. |
 | `dist/` and `node_modules/` | Generated build output and installed dependencies, respectively. |
 
@@ -89,4 +89,4 @@ The repository pages were read. Live demos and existing local pages were not vis
 
 ## Source checks
 
-Ran the existing lint command using `npm.cmd` because PowerShell's execution policy blocks `npm.ps1`. The full command fails partly because its ignore pattern includes only the root `dist` directory and also scans generated `redesign/dist` JavaScript. A focused check of `src` and `redesign/src` reports two errors and one warning in the original site: an unused `bigWords` value, a React hooks immutability rule involving `typeLines`, and a missing effect dependency for `termLines`. The redesign source produces no findings in that focused check. These are existing lint findings, not independently confirmed runtime failures. No website code was changed and no build or browser runtime check was performed.
+Ran the existing lint command using `npm.cmd` because PowerShell's execution policy blocks `npm.ps1`. The full command fails partly because its ignore pattern includes only the root `dist` directory and also scans generated `portfolio/dist` JavaScript. A focused check of `src` and `portfolio/src` reports two errors and one warning in the original site: an unused `bigWords` value, a React hooks immutability rule involving `typeLines`, and a missing effect dependency for `termLines`. The redesign source produces no findings in that focused check. These are existing lint findings, not independently confirmed runtime failures. No website code was changed and no build or browser runtime check was performed.

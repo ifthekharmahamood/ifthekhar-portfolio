@@ -1,7 +1,7 @@
-# Portfolio redesign — "Dossier"
+# Portfolio site — "Dossier"
 
-A ground-up redesign of the portfolio, living entirely inside this folder. **Nothing in the
-original site was modified.** The only file changed outside `redesign/` is
+The portfolio site, living entirely inside this folder. **Nothing in the
+original site was modified.** The only file changed outside `portfolio/` is
 `.claude/launch.json`, which gained a second dev-server entry.
 
 ## Running it
@@ -9,13 +9,13 @@ original site was modified.** The only file changed outside `redesign/` is
 From the repository root:
 
 ```bash
-npm run dev --prefix redesign
+npm run dev --prefix portfolio
 ```
 
 Dev server: <http://localhost:5273> (the original site keeps port 5173, so both can run at once).
 
 ```bash
-npm run build --prefix redesign
+npm run build --prefix portfolio
 ```
 
 **Nothing is installed here on purpose** — Node resolves `react`, `gsap`, `vite`,
@@ -26,7 +26,7 @@ cache in this folder at dev time; it is disposable — delete it freely.)
 ## The design system
 
 Generated with the `ui-ux-pro-max` skill and persisted to
-`design-system/ifthekhar-portfolio-redesign/MASTER.md`. Headline decisions:
+`design-system/ifthekhar-portfolio-portfolio/MASTER.md`. Headline decisions:
 
 | Layer | Choice | Source |
 |---|---|---|
@@ -70,7 +70,7 @@ Measured against the skill's pre-delivery checklist, driving headless Chrome ove
 ## Layout
 
 ```
-redesign/
+portfolio/
 ├── index.html              theme bootstrap + font preconnect
 ├── src/
 │   ├── index.css           tokens, editorial primitives, motion

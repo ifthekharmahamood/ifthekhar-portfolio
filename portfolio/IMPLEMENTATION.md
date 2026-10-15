@@ -5,10 +5,10 @@ The active implementation lives in src/Portfolio.jsx, src/ProductJourney.jsx, sr
 Run from the repository root:
 
 ```powershell
-npm.cmd run dev --prefix redesign
+npm.cmd run dev --prefix portfolio
 ```
 
-Preview uses port 5273. Build with npm.cmd run build --prefix redesign.
+Preview uses port 5273. Build with npm.cmd run build --prefix portfolio.
 
 ## Current experience
 

@@ -8,9 +8,9 @@
       "port": 5173
     },
     {
-      "name": "redesign",
+      "name": "portfolio",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "redesign"],
+      "runtimeArgs": ["run", "dev", "--prefix", "portfolio"],
       "port": 5273
     }
   ]

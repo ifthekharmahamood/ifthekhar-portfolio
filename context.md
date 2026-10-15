@@ -7,10 +7,10 @@ See `guardrails.md` for the standing rules governing this repository.
 
 A personal portfolio for Ifthekhar Enad Mahamood, Product Manager.
 
-**The live site is `redesign/`** — green/cream palette, served on port 5273:
+**The live site is `portfolio/`** — green/cream palette, served on port 5273:
 
 ```
-npm.cmd run dev --prefix redesign
+npm.cmd run dev --prefix portfolio
 ```
 
 The abandoned root site (`src/`, `index.html`, `public/`) was **deleted** —
@@ -18,13 +18,54 @@ it carried retracted claims (20M+ downloads, "40% faster onboarding", GPA 4.00).
 Port 5173 no longer serves anything. The root `package.json`/`node_modules`
 must survive any cleanup.
 
-`redesign/` deliberately has **no `node_modules` of its own** — Node resolves
+`portfolio/` deliberately has **no `node_modules` of its own** — Node resolves
 `react`, `gsap`, `vite` by walking up to the parent install. Do not run
 `npm install` inside it.
 
-Live files in `redesign/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
+Live files in `portfolio/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 `PortfolioSections.jsx`, `ResumePreview.jsx`, `portfolio.css`,
 `product-journey.css`, `data/portfolio.js`, `data/resume.json`.
+
+---
+
+## Session — 15 October 2026 (thirteenth pass) — prepared for publishing
+
+**`redesign/` renamed to `portfolio/`.** Done with `git mv` so all 40 files keep
+their history. The dev server held a lock on the folder and had to be stopped
+first. Every path reference was updated across 15 files (`package.json`, the
+`qa/*.mjs` scripts, `.claude/launch.json`, `.gitignore`, both READMEs,
+`IMPLEMENTATION.md`, `PORTFOLIO_REVIEW.md`, this file). Remaining occurrences of
+the word "redesign" are prose describing the design history, not paths.
+
+Verified after the rename: production build passes, dev server runs on 5273,
+all nine nav links and eleven sections present, headshot and all three Selected
+Work images decode (Shuttle confirmed by scrolling it into view — it is
+`loading="lazy"`, so an early probe reporting `0x0` was the lazy loader working
+as intended, not a broken asset), zero console errors.
+
+**`Master_Resume.docx` untracked** (`git rm --cached`) and added to
+`.gitignore`. It stays on disk as the private working copy. It was never
+pushed, so it exists in no remote history. The public resume downloads in
+`portfolio/public/` remain tracked on purpose — they are the download button.
+
+**Root `README.md` rewritten** as the repository front page: who he is,
+availability, selected work with outcomes, experience, and contact links, with
+the build instructions kept lower down. The previous README opened with build
+commands, which is the wrong first impression for a public portfolio repo.
+Facts were checked against `data/portfolio.js` rather than written from memory —
+this caught two errors in my first draft (ACI Motors Ltd is the full name, and
+the career path is PM at Kite Games and Fashol with a separate Management
+Trainee to Product Specialist promotion at Shuttle, not one continuous ladder).
+
+**Fixed a pre-existing duplicate React key.** Both Beauty Editor metrics in
+Impact share the label `'Beauty Editor: Photo Retouch'`, so `key={metric.label}`
+collided and React warned in the console. Now keyed on label + metric. This
+dated from the metric swap in an earlier pass; the rename only surfaced it.
+
+**Still outstanding before going public:** `PORTFOLIO_REVIEW.md` (92 lines) is
+an internal design critique that analyses the resume and critiques earlier
+versions. It is still tracked and would be public. Flagged to the owner,
+not removed.
 
 ---
 
@@ -266,23 +307,23 @@ recruiter had to scroll 10.9 screens to reach it. Two changes:
 ## Session — 14 October 2026
 
 ### Repository setup
-- Initialised git (no remote). Added `redesign/dist`, `redesign/node_modules`
+- Initialised git (no remote). Added `portfolio/dist`, `portfolio/node_modules`
   and vite caches to `.gitignore` so build output is never tracked.
 - Added `guardrails.md` and this `context.md`.
 - **Removed the abandoned root site** (`src/`, `index.html`, `public/`,
   `dist/`, and the root vite/tailwind/postcss/eslint configs). The root
   `package.json` and `node_modules` stay — they are the dependency source
-  `redesign/` resolves against. Port 5173 no longer serves anything.
-- Removed 13 unimported files from `redesign/src` (the old `components/`
+  `portfolio/` resolves against. Port 5173 no longer serves anything.
+- Removed 13 unimported files from `portfolio/src` (the old `components/`
   directory, `data/content.js`, `index.css`, `lib/useReveal.js`) plus
-  `redesign`'s unused tailwind/postcss configs.
+  `portfolio`'s unused tailwind/postcss configs.
 - Deleted six orphaned PNGs (~10.6MB) that nothing referenced.
 
 ### Layout and content
 - **Lifecycle panel** moved out of the hero into its own **Process** section
   between Impact and Selected Work; added to the nav.
 - **Hero right column** now holds a headshot frame. It shows a labelled
-  placeholder until a photo exists at `redesign/public/images/headshot.jpg`,
+  placeholder until a photo exists at `portfolio/public/images/headshot.jpg`,
   then swaps in automatically with no code change.
 - **Chapter rail removed**, replaced by a floating back-to-top button that
   appears after roughly one viewport of scroll.
@@ -305,15 +346,15 @@ recruiter had to scroll 10.9 screens to reach it. Two changes:
   "Back to top" only once the reader reaches the very bottom of the page.
 
 ### Performance
-- Added `redesign/scripts/optimize-images.mjs`. It encodes a visually-lossless
+- Added `portfolio/scripts/optimize-images.mjs`. It encodes a visually-lossless
   WebP beside every PNG/JPEG in `public/images` **at the original pixel
   dimensions**, and discards the result if it fails to beat the original.
   Encoding runs in headless Chrome, so there is no npm dependency.
 - It runs automatically on `npm run build`, and on demand:
 
   ```
-  npm.cmd run optimize:images --prefix redesign          # new/changed only
-  npm.cmd run optimize:images:force --prefix redesign    # re-encode all
+  npm.cmd run optimize:images --prefix portfolio          # new/changed only
+  npm.cmd run optimize:images:force --prefix portfolio    # re-encode all
   ```
 
 - A `Picture` component in `Portfolio.jsx` serves the WebP with the original
@@ -323,7 +364,7 @@ recruiter had to scroll 10.9 screens to reach it. Two changes:
   downloads ~409KB of imagery instead of ~5.4MB.
 
 ### Uploading media
-Drop files into `redesign/public/images/`. The headshot must be named
+Drop files into `portfolio/public/images/`. The headshot must be named
 `headshot.jpg` (or `.png`) — the hero swaps the placeholder for it
 automatically. Then run the optimiser, or just build.
 

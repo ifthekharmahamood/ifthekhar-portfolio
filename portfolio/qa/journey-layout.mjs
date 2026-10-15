@@ -4,6 +4,6 @@ const page=await browser.newPage();await page.emulateMedia({reducedMotion:'reduc
 for(const width of [1920,1440,1280,1100,1024,834,800,768,390,375]){
  await page.setViewportSize({width,height:1000});
  console.log(await page.evaluate(()=>{const rect=n=>{const b=n.getBoundingClientRect();return {left:b.left,right:b.right,top:b.top,bottom:b.bottom}};const j=rect(document.querySelector('.product-journey'));return {width:innerWidth,journey:j,copies:[...document.querySelectorAll('.hero-content>h1,.hero-lead,.hero-description,.hero-actions,.hero .location')].map(n=>({name:n.className||n.tagName,...rect(n)}))}}));
- if(width===834)await page.screenshot({path:'redesign/qa/screenshots/journey-small-tablet.png'});
+ if(width===834)await page.screenshot({path:'portfolio/qa/screenshots/journey-small-tablet.png'});
 }
 await browser.close();
