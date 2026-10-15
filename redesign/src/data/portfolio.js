@@ -9,10 +9,14 @@ export const outcomes = [
   { value: 4.4, suffix: '★', decimals: 1, label: 'Beauty Editor: Photo Retouch', metric: 'Reviews', spoken: '4.4 star rating for Beauty Editor Photo Retouch' },
   { value: 100, suffix: 'K+', label: 'Beauty Editor: Photo Retouch', metric: 'Downloads', spoken: 'Over 100 thousand Beauty Editor Photo Retouch downloads' },
 ];
+// `image` files live in public/images/. They are currently conceptual artwork,
+// so each row shows a "Concept illustration" caption. When a real product
+// screenshot replaces one, add `concept: false` and an `imageAlt` describing
+// what the screenshot shows.
 export const stories = [
   {
     id: 'timewarp', title: 'Time Warp Scan', category: 'Consumer mobile', company: 'Kite Games Studio',
-    image: '/images/timewarp-green-cream.png', heading: 'Simpler tools. More room to create.',
+    image: '/images/time-warp-scan.png', heading: 'Simpler tools. More room to create.',
     summary: 'Focused the app on two effects and rebuilt a single shoot, edit, and export flow in a category that kept adding filters.',
     result: '5M+ downloads', focus: 'Product focus · User journeys · Cross-functional delivery',
     link: 'https://play.google.com/store/apps/details?id=com.kgs.timewarpscan',
@@ -25,7 +29,7 @@ export const stories = [
   },
   {
     id: 'beauty', title: 'Beauty Editor', category: 'Consumer mobile', company: 'Kite Games Studio',
-    image: '/images/beauty-green-cream.png', heading: 'A better first-time experience.',
+    image: '/images/beauty-editor.png', heading: 'A better first-time experience.',
     summary: 'Rebuilt onboarding and UI to make the first experience simpler, then used a post-launch analytics loop to guide growth.',
     result: '+21% core retention', focus: 'Onboarding · Prioritization · Product analytics',
     link: 'https://play.google.com/store/apps/details?id=com.app.beautyeditor',
@@ -38,7 +42,7 @@ export const stories = [
   },
   {
     id: 'shuttle', title: 'Shuttle Partner App', category: 'Mobility marketplace', company: 'Shuttle',
-    image: '/images/shuttle-green-cream.png', heading: 'Less friction for drivers.',
+    image: '/images/shuttle-partner-app.png', heading: 'Less friction for drivers.',
     summary: 'Driver interviews exposed where manual signup broke down. A self-serve registration flow helped reduce onboarding cost.',
     result: '40% lower onboarding cost', focus: 'User discovery · MVP delivery · Marketplace operations',
     link: 'https://play.google.com/store/apps/details?id=com.easytransport.shuttle.driver',

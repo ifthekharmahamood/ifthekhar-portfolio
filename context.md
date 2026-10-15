@@ -27,6 +27,22 @@ Live files in `redesign/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (fifth pass)
+
+- **Stage duration cut from 7s to 3s** in How I Work. The inner content
+  animations had to come with it: the checklist stagger finished at ~1.6s and
+  the outcome line waited until 1.8s, which left almost no reading time in a
+  3s stage. The stagger now completes by ~1.0s. Measured in the browser at a
+  3,033ms average advance.
+- **Selected Work images renamed** to predictable filenames the owner can
+  drop in directly: `time-warp-scan.png`, `beauty-editor.png`,
+  `shuttle-partner-app.png` (was `*-green-cream.png`).
+- The "Concept illustration" caption and the image `alt` are now data-driven:
+  set `concept: false` and `imageAlt` on a story in `data/portfolio.js` when a
+  real product screenshot replaces the conceptual artwork.
+
+---
+
 ## Session — 15 October 2026 (fourth pass)
 
 - **Stage diagrams were invisible below 1000px.** The diagrams rendered
