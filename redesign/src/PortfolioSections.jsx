@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowUpRight, ArrowDown, Database, TrendingUp, Layers, Wallet, GraduationCap, Award, Trophy, BookOpen, Camera, Plane, Tent, Bike, Volleyball } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, ArrowUp, Database, TrendingUp, Layers, Wallet, GraduationCap, Award, Trophy, BookOpen, Camera, Plane, Tent, Bike, Volleyball } from 'lucide-react';
 import { additionalProjects, education, certifications, awards, hobbies, career } from './data/portfolio';
 
 const projectIcons={systems:Database,growth:TrendingUp,concept:Layers,finance:Wallet};
@@ -59,7 +59,10 @@ export function ExperienceSection(){
               </div>
               <h3>{item.role}</h3>
               <p className="timeline-company">{item.company}{item.location && <span> · {item.location}</span>}</p>
-              <p className="timeline-text">{item.text}</p>
+              {item.promotedFrom && <p className="timeline-promotion"><ArrowUp size={14} aria-hidden="true" />{item.promotedFrom}</p>}
+              {item.blurb && <p className="timeline-text">{item.blurb}</p>}
+              {item.points?.length > 0 && <ul className="timeline-points">{item.points.map(point => <li key={point}>{point}</li>)}</ul>}
+              {item.projects?.length > 0 && <div className="timeline-projects"><p className="timeline-projects-label">Projects</p><ul>{item.projects.map(name => <li key={name}>{name}</li>)}</ul></div>}
             </div>
           </li>
         )}

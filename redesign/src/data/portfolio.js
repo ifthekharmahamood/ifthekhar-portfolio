@@ -51,32 +51,68 @@ export const stories = [
   },
 ];
 // One timeline, newest first. University roles are merged in by date rather than
-// living in a separate "learning in practice" block.
+// living in a separate "learning in practice" block. `projects` tags each role with
+// the work shown elsewhere on the page, so a reader can connect company to project.
 export const career = [
   {
     company: 'Lamar University', role: 'Graduate Assistant, SAP Help Desk',
-    period: 'Sep 2026 – Present', status: 'Current', location: 'Beaumont, Texas',
-    text: 'Training students and faculty on SAP GUI, ERP modules, and SAP Analytics Cloud; supporting enterprise-systems and predictive-analytics coursework.',
+    period: 'Sep 2026 - Present', status: 'Current', location: 'Beaumont, Texas',
+    blurb: 'College of Business SAP lab supporting students and faculty across enterprise systems and predictive analytics coursework.',
+    points: [
+      'Train students and faculty on SAP GUI, SAP ERP modules (MM, SD, PS), and SAP Analytics Cloud, diagnosing configuration errors and validating end-to-end project workflows before submission.',
+      'Maintain SAP user documentation and license configurations with faculty coordinators, and deliver software demonstrations for enterprise systems and predictive analytics courses.',
+    ],
   },
   {
     company: 'Lamar University', role: 'IT Student Assistant',
-    period: 'Feb 2025 – May 2026', location: 'Beaumont, Texas',
-    text: 'Helped students, faculty, and staff resolve identity, access, and connectivity issues, explaining each fix in clear language.',
+    period: 'Feb 2025 - May 2026', location: 'Beaumont, Texas',
+    points: [
+      'Handled first-line identity, access, and connectivity issue resolution for students, faculty, and staff, explaining each fix to non-technical users.',
+    ],
   },
   {
     company: 'Kite Games Studio', role: 'Product Manager',
-    period: 'Apr – Dec 2024', location: 'Dhaka, Bangladesh',
-    text: 'Owned consumer apps end to end, bringing product focus, onboarding improvements, and analytics into delivery with a team of 10+.',
+    period: 'Apr 2024 - Dec 2024', location: 'Dhaka, Bangladesh',
+    blurb: 'Mobile studio publishing consumer camera and photo apps across the US, UK, and Japan. Owned two apps end to end with a cross-functional team of 10+ engineers, QA specialists, and designers.',
+    projects: ['Time Warp Scan', 'Beauty Editor'],
+    points: [
+      'Grew Time Warp Scan to 5M+ downloads and a 4.0 rating across 23,600+ reviews by cutting the app to two effects against a category adding filters, and rebuilding the journey into one shoot, edit, and export flow.',
+      'Lifted core retention 21% and engagement 24% on Beauty Editor through a full revamp of onboarding and UI, then raised downloads 23% in three months through ASO and a post-launch analytics loop.',
+      'Increased customer acquisition 10% across the US, UK, and Japan by pairing App Store optimization with product changes drawn from competitor teardowns and user research.',
+      'Settled a design dispute with engineering by asking which elements were expensive rather than defending the spec, cutting two costly animations that carried no measurable value.',
+    ],
   },
   {
     company: 'Fashol', role: 'Product Manager',
-    period: 'Oct 2023 – Feb 2024', location: 'Dhaka, Bangladesh',
-    text: 'Worked across supplier systems, an Android app taken to test phase, and two B2C retail pilots. Defined the Smart Shelf concept through buyer research, specifications, and its business case.',
+    period: 'Oct 2023 - Feb 2024', location: 'Dhaka, Bangladesh',
+    blurb: 'Agriculture marketplace sourcing from farmers and supplying B2B retail chains. Product manager across four products with a five-person engineering and QA team.',
+    projects: ['Supplier products', 'Smart Shelf'],
+    points: [
+      'Owned the supplier ERP panel for farmer inventory and pricing, specified a supplier and reseller Android app and drove it to test phase, and ran two B2C retail pilots whose operating data decided whether the model could scale.',
+      'Defined Smart Shelf, a zero-to-one automated retail concept, writing the specification and running buyer field research, then presenting the business case to senior management and Singapore-based investors.',
+    ],
   },
   {
     company: 'Shuttle', role: 'Product Specialist',
-    period: 'Jun 2021 – Sep 2023', location: 'Dhaka, Bangladesh',
-    text: 'Owned the Partner App, Partner ERP, and acquisition systems for both sides of a mobility marketplace. Jatrikoi increased lead generation 20% and team efficiency 15%.',
+    period: 'Jun 2022 - Sep 2023', location: 'Dhaka, Bangladesh',
+    promotedFrom: 'Promoted from Management Trainee',
+    blurb: 'Ride-sharing and commuter shuttle platform in Dhaka. Product Owner for the Partner App, the internal Partner ERP, and the acquisition systems for both sides of the marketplace, leading five engineers and a QA specialist.',
+    projects: ['Shuttle Partner App', 'Partner ERP', 'Jatrikoi & Driverkoi'],
+    points: [
+      'Cut driver onboarding cost 40% by shipping a self-serve registration flow, scoped after driver interviews exposed where the manual signup process broke down.',
+      'Shipped Driver Earnings, the payouts surface where drivers tracked and received trip income, cutting payment processing time 50% and tripling driver engagement after regional rollout.',
+      'Designed the Partner ERP to automate weekly bill disbursement and vehicle requests after documenting the manual process and gathering requirements from driver, operations, and finance stakeholders, raising throughput 20% and removing 50% of the paperwork.',
+      'Owned Jatrikoi and Driverkoi as product owner, the customer and driver acquisition systems, building both with the design and engineering teams; Jatrikoi lifted lead generation 20% and team efficiency 15%.',
+      'Shipped the rebranded Home and Business pages and phase one of the Partners page on the company website, and integrated Google Analytics, Clarity, and Meta Pixel with marketing to track the user journey.',
+    ],
+  },
+  {
+    company: 'Shuttle', role: 'Management Trainee',
+    period: 'Jun 2021 - Jun 2022', location: 'Dhaka, Bangladesh',
+    blurb: 'Joined the commuter shuttle platform as a management trainee, learning the operations the product team would later automate.',
+    points: [
+      'Worked alongside driver, operations, and finance teams on the day-to-day running of the marketplace, building the process knowledge that shaped the Partner App and Partner ERP after promotion to Product Specialist.',
+    ],
   },
 ];
 
