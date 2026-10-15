@@ -128,7 +128,7 @@ export const career = [
     period: 'Jan 2021 - Apr 2021', location: 'Dhaka, Bangladesh',
     points: [
       'Streamlined payment tracking in Distributors Network, reducing manual efforts and easing product resale.',
-      "Contributed to Foton Motors' Network Development at ACI Motors, the exclusive distributor for FOTON Motor Group.",
+      "Contributed to Foton Motors’ Network Development at ACI Motors, the exclusive distributor for FOTON Motor Group.",
     ],
   },
 ];

@@ -67,12 +67,9 @@ npm.cmd run optimize:images:force --prefix portfolio    # re-encode everything
 
 Every image gets a visually-lossless WebP sibling at the **same pixel
 dimensions** — nothing is downscaled — and the original is kept as a
-`<picture>` fallback.
-
-### Repository conventions
-
-Read **`guardrails.md`** before making changes. **`context.md`** carries the
-running summary of what changed and why.
+`<picture>` fallback. Metadata (EXIF, content credentials, editor history) is
+stripped from source PNGs, since the page never uses it and it can run to tens
+of kilobytes.
 
 ### Layout
 
@@ -80,7 +77,7 @@ running summary of what changed and why.
 portfolio/
 ├── index.html
 ├── vite.config.js
-├── public/            images, favicon, resume downloads
+├── public/            images, favicon, resume download
 ├── scripts/           image optimisation (runs on build)
 └── src/
     ├── Portfolio.jsx          hero, impact, selected work, contact

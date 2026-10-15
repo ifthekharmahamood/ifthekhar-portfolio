@@ -38,6 +38,33 @@ const CHROME = [
 
 const kb = n => `${(n / 1024).toFixed(0)} KB`;
 
+// PNG chunks worth keeping: image data and colour/rendering information.
+// Everything else (C2PA content credentials, EXIF, text comments, editor
+// history) is metadata the page never uses, so it is stripped — guardrails.md
+// requires optimisation to remove metadata, and C2PA blocks can run to tens of
+// kilobytes. Pixels are untouched; only whole non-essential chunks are dropped.
+const PNG_KEEP = new Set(['IHDR', 'PLTE', 'IDAT', 'IEND', 'tRNS', 'gAMA',
+  'cHRM', 'sRGB', 'iCCP', 'bKGD', 'pHYs', 'sBIT']);
+
+function stripPngMetadata(buffer) {
+  if (buffer.length < 8 || buffer.readUInt32BE(0) !== 0x89504e47) return null;
+  const kept = [buffer.subarray(0, 8)];
+  const dropped = [];
+  let offset = 8;
+  while (offset + 8 <= buffer.length) {
+    const length = buffer.readUInt32BE(offset);
+    const type = buffer.toString('ascii', offset + 4, offset + 8);
+    const end = offset + 12 + length;
+    if (end > buffer.length) return null;           // truncated; leave the file alone
+    if (PNG_KEEP.has(type)) kept.push(buffer.subarray(offset, end));
+    else dropped.push(`${type} ${kb(length)}`);
+    offset = end;
+    if (type === 'IEND') break;
+  }
+  if (!dropped.length) return null;
+  return { buffer: Buffer.concat(kept), dropped };
+}
+
 async function connect(wsUrl) {
   const ws = new WebSocket(wsUrl);
   const pending = new Map();
@@ -75,6 +102,19 @@ async function main() {
   if (!files.length) {
     console.log('No images to optimise.');
     return;
+  }
+
+  // Strip metadata from every source first. This runs regardless of whether a
+  // WebP needs re-encoding, so an already-optimised image cannot keep carrying
+  // a C2PA block or EXIF payload.
+  for (const name of files) {
+    if (extname(name).toLowerCase() !== '.png') continue;
+    const file = join(IMAGES, name);
+    const stripped = stripPngMetadata(await readFile(file));
+    if (stripped) {
+      await writeFile(file, stripped.buffer);
+      console.log(`${name}: stripped ${stripped.dropped.join(', ')}`);
+    }
   }
 
   // Only encode what is missing or stale, unless --force.
