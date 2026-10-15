@@ -27,6 +27,29 @@ Live files in `redesign/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (ninth pass)
+
+Hero simplified on the owner's direction — it had accumulated three competing
+elements under the buttons.
+
+- **Lifecycle teaser removed from the hero.** It was the busiest item and
+  duplicated the "How I Work" section that explains each step properly. The
+  section keeps its nav entry and its place after Selected Work.
+- **Availability moved above the name**, replacing the "Product Manager"
+  eyebrow: a small green dot plus "Available Dec 2026 - PM and APM roles".
+  Recruiters read it first.
+- **Status and location merged into one quiet line** under the buttons:
+  "Beaumont, TX - Open to relocation", 15px muted. The pill styling is gone.
+- **Scroll cue removed** and the hero tightened: the old `min-height:830px`
+  and 115px bottom padding were sized for the taller stack and left 197-275px
+  of dead space. Now 44-84px on desktop.
+- On screens under 620px the eyebrow's wide letter-spacing made the
+  availability label wrap mid-phrase and strand its separator, so tracking
+  tightens there. Single line at 360, 390 and 430px.
+- Removed the now-orphaned CSS for the teaser, status row, pill and cue.
+
+---
+
 ## Session — 15 October 2026 (eighth pass)
 
 - **Availability stated explicitly** in the hero: a pill reading "Seeking

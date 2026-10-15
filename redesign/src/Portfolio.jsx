@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, ArrowDown, ArrowUp, Menu, X, Mail, MapPin, User } from 'lucide-react';
 import { person, outcomes, stories, career } from './data/portfolio';
 import ResumePreview from './ResumePreview';
-import ProductJourney, { stages as journeyStages } from './ProductJourney';
+import ProductJourney from './ProductJourney';
 import { MoreProjects, ExperienceSection, EducationSection, CertificationsSection, AwardsSection, HobbiesSection } from './PortfolioSections';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -43,26 +43,6 @@ function MailLink({ className, children, subject = '', ...rest }) {
     }, 600);
   };
   return <a className={className} href={mailto} onClick={onClick} {...rest}>{children}</a>;
-}
-
-// A one-line preview of the lifecycle in the hero. The full interactive
-// section sits further down; this makes the process visible immediately,
-// which is what a recruiter screening for PM roles looks for first.
-function JourneyTeaser() {
-  return (
-    <a className="hero-journey" href="#how-i-work" data-intro>
-      <span className="hero-journey-label">How I work</span>
-      <span className="hero-journey-stages">
-        {journeyStages.map((stage, index) => (
-          <span key={stage.name}>
-            {index > 0 && <i aria-hidden="true">/</i>}
-            {stage.name}
-          </span>
-        ))}
-      </span>
-      <ArrowDown size={15} aria-hidden="true" />
-    </a>
-  );
 }
 
 function Counter({ metric }) {
@@ -141,7 +121,7 @@ export default function Portfolio() {
     <header className="site-header"><div className="scroll-progress" ref={progress} aria-hidden="true" /><nav className="container nav" aria-label="Primary"><a className="wordmark" href="#top">{person.name}</a><div className="desktop-links">{navigation.map(([label,href]) => <a key={href} href={href} aria-current={active===href ? 'location' : undefined}>{label}</a>)}</div><button type="button" className="resume-link" onClick={() => setResumeOpen(true)}>Resume <ArrowUpRight size={16} aria-hidden="true" /></button><button className="menu-button icon-button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={22} /> : <Menu size={22} />}</button></nav>{menuOpen && <nav id="mobile-navigation" className="mobile-links" aria-label="Mobile">{navigation.map(([label,href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>)}</nav>}</header>
     
     <main id="main">
-      <section id="top" className="hero"><div className="container hero-content"><p className="eyebrow" data-intro>Product Manager</p><h1 data-intro>Ifthekhar Enad<br />Mahamood</h1><p className="hero-lead" data-intro>I build useful products across consumer apps, mobility marketplaces, and enterprise systems.</p><p className="hero-description" data-intro>Four years in product. Now completing an MS in Management Information Systems at Lamar University.</p><div className="hero-actions" data-intro><a className="button" href="#projects">Explore my work <ArrowUpRight size={19} aria-hidden="true" /></a><a className="text-link" href="#contact">Get in touch <ArrowUpRight size={18} aria-hidden="true" /></a></div><div className="hero-status" data-intro><p className="availability"><span className="availability-dot" aria-hidden="true" />Seeking Product Manager &amp; APM roles <span>·</span> From Dec 2026</p><p className="location"><MapPin size={17} aria-hidden="true" /> Beaumont, Texas <span>·</span> Open to relocation</p></div><JourneyTeaser /></div><div className="hero-portrait" data-intro><div className="portrait-frame"><Picture src="/images/headshot.png" alt="Ifthekhar Enad Mahamood" width="900" height="1100" decoding="async" onLoad={event=>{event.currentTarget.closest('.portrait-frame').classList.add('has-photo');}} onError={event=>{event.currentTarget.closest('.portrait-frame').classList.remove('has-photo');}} /><div className="portrait-placeholder" aria-hidden="true"><User size={44} strokeWidth={1.2} /><p>Add your photo</p><code>public/images/headshot.png</code></div></div></div><a className="scroll-cue" href="#impact"><ArrowDown size={25} aria-hidden="true" /><span>Scroll to explore</span></a></section>
+      <section id="top" className="hero"><div className="container hero-content"><p className="eyebrow hero-available" data-intro><span className="availability-dot" aria-hidden="true" />Available Dec 2026 <span>·</span> PM and APM roles</p><h1 data-intro>Ifthekhar Enad<br />Mahamood</h1><p className="hero-lead" data-intro>I build useful products across consumer apps, mobility marketplaces, and enterprise systems.</p><p className="hero-description" data-intro>Four years in product. Now completing an MS in Management Information Systems at Lamar University.</p><div className="hero-actions" data-intro><a className="button" href="#projects">Explore my work <ArrowUpRight size={19} aria-hidden="true" /></a><a className="text-link" href="#contact">Get in touch <ArrowUpRight size={18} aria-hidden="true" /></a></div><p className="location" data-intro><MapPin size={16} aria-hidden="true" /> Beaumont, TX <span>·</span> Open to relocation</p></div><div className="hero-portrait" data-intro><div className="portrait-frame"><Picture src="/images/headshot.png" alt="Ifthekhar Enad Mahamood" width="900" height="1100" decoding="async" onLoad={event=>{event.currentTarget.closest('.portrait-frame').classList.add('has-photo');}} onError={event=>{event.currentTarget.closest('.portrait-frame').classList.remove('has-photo');}} /><div className="portrait-placeholder" aria-hidden="true"><User size={44} strokeWidth={1.2} /><p>Add your photo</p><code>public/images/headshot.png</code></div></div></div></section>
       <section id="impact" className="impact" aria-labelledby="impact-title"><div className="container"><div className="section-heading" data-reveal><h2 id="impact-title">Impact</h2></div><div className="outcomes">{outcomes.map(metric => <Counter key={metric.label} metric={metric} />)}</div></div></section>
       <section id="projects" className="work" aria-labelledby="work-title"><div className="container"><div className="section-heading" data-reveal><h2 id="work-title">Selected Work</h2></div>{stories.map((story,index) => <article className={`work-story ${index%2 ? 'reverse' : ''}`} key={story.id}><div className="work-image" data-reveal><Picture data-parallax src={story.image} alt={story.imageAlt || ''} width="1448" height="1086" loading="lazy" decoding="async" /></div><div className="work-copy" data-reveal><p className="eyebrow">0{index+1} / {story.category}</p><h3>{story.title}</h3><p className="work-subtitle">{story.heading}</p><p className="work-summary">{story.summary}</p><p className="story-result">{story.result}</p><p className="work-focus">{story.focus}</p><button className="text-link" onClick={() => setSelected(story)}>Explore the case study <ArrowUpRight size={19} aria-hidden="true" /></button></div></article>)}</div></section>
       <section id="how-i-work" className="process" aria-labelledby="how-i-work-title"><div className="container"><div className="section-heading" data-reveal><h2 id="how-i-work-title">How I Work</h2></div><ProductJourney /></div></section>
