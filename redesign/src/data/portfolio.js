@@ -6,8 +6,8 @@ export const person = {
 };
 export const outcomes = [
   { value: 5, suffix: 'M+', decimals: 1, label: 'Time Warp Scan downloads', spoken: 'Over 5 million Time Warp Scan downloads' },
-  { value: 21, prefix: '+', suffix: '%', label: 'Beauty Editor core retention', spoken: '21 percent improvement in Beauty Editor core retention' },
-  { value: 40, suffix: '%', label: 'Lower Shuttle onboarding cost', spoken: '40 percent lower Shuttle driver onboarding cost' },
+  { value: 100, suffix: 'K+', label: 'Beauty Editor: Photo Retouch downloads', spoken: 'Over 100 thousand Beauty Editor Photo Retouch downloads' },
+  { value: 4.4, suffix: '★', decimals: 1, label: 'Beauty Editor: Photo Retouch reviews', spoken: '4.4 star rating for Beauty Editor Photo Retouch' },
 ];
 export const stories = [
   {

@@ -49,7 +49,6 @@ export default function ProductJourney() {
         </div>
       </div>
     </div>
-    <div className="journey-loop"><Repeat2 size={19} strokeWidth={1.5} aria-hidden="true" /><p>Ship. Learn. Build better.<span>{current.next}</span></p></div>
-    <p className="journey-note">A continuous loop, never just a straight line.</p>
+    <div className="journey-loop"><Repeat2 size={19} strokeWidth={1.5} aria-hidden="true" /><p>{current.next}</p></div>
   </aside>;
 }

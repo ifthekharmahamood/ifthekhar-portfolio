@@ -27,6 +27,30 @@ Live files in `redesign/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026
+
+- **Headshot placed.** Owner supplied `headshot.png` (1254x1254). Quality was
+  already good, so no upscaling was needed. Pointed the markup at `.png`
+  (it had expected `.jpg`) and set `object-position: 50% 18%` so the square
+  source crops to the 9:11 frame on the face rather than the chest.
+  Optimised to WebP: 1952KB -> 171KB at full resolution.
+- **"Say hello" fixed.** The markup and `mailto:` href were correct; the
+  failure is environmental — a `mailto:` does nothing when the visitor has no
+  desktop mail client registered, which is common on Windows with webmail. A
+  new `MailLink` component tries the mail client first and falls back to
+  Gmail's compose window in a new tab.
+- **Phone number removed from the resume popup only.** It is stripped from
+  `resume.json`'s contact line; the downloadable .docx still contains it, so
+  anyone who downloads the resume gets the full original.
+- **Impact metrics replaced**: "+21% Beauty Editor core retention" and
+  "40% Lower Shuttle onboarding cost" are now "100K+ Beauty Editor: Photo
+  Retouch downloads" and "4.4* Beauty Editor: Photo Retouch reviews".
+- **Journey loop text trimmed**: removed "Ship. Learn. Build better." and
+  "A continuous loop, never just a straight line." The remaining line keeps
+  its position and grew from 12px to 16px.
+
+---
+
 ## Session — 14 October 2026
 
 ### Repository setup
