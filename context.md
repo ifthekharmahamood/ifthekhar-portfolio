@@ -27,6 +27,22 @@ Live files in `redesign/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (eighth pass)
+
+- **Availability stated explicitly** in the hero: a pill reading "Seeking
+  Product Manager & APM roles - From Dec 2026", with the location beside it on
+  the same row. Previously availability was only inferable from a small
+  "Expected Dec 2026" date. The pill and location share a row so the lifecycle
+  teaser stays above the fold; verified at six desktop sizes.
+- **Real artwork for the remaining two stories.** Time Warp Scan and Shuttle
+  Partner App arrived at 1448x1086, already 4:3, and optimised to 86KB and
+  78KB. Both carry descriptive `imageAlt`. All three Selected Work images are
+  now genuine product shots.
+- Removed a stray unreferenced `time-warp-scan-case-study.webp`.
+- Total imagery on first load is now ~334KB.
+
+---
+
 ## Session — 15 October 2026 (seventh pass)
 
 **How I Work was buried.** Measured at 82% down a 13.3-screen page — a

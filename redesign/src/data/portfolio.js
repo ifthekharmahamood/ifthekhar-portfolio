@@ -14,7 +14,9 @@ export const outcomes = [
 export const stories = [
   {
     id: 'timewarp', title: 'Time Warp Scan', category: 'Consumer mobile', company: 'Kite Games Studio',
-    image: '/images/time-warp-scan.png', heading: 'Simpler tools. More room to create.',
+    image: '/images/time-warp-scan.png',
+    imageAlt: 'The Time Warp Scan capture screen on a phone, with the scan line sweeping across a portrait, horizontal and vertical options, and the app’s 23.7K reviews and 5M+ downloads.',
+    heading: 'Simpler tools. More room to create.',
     summary: 'Focused the app on two effects and rebuilt a single shoot, edit, and export flow in a category that kept adding filters.',
     result: '5M+ downloads', focus: 'Product focus · User journeys · Cross-functional delivery',
     link: 'https://play.google.com/store/apps/details?id=com.kgs.timewarpscan',
@@ -42,7 +44,9 @@ export const stories = [
   },
   {
     id: 'shuttle', title: 'Shuttle Partner App', category: 'Mobility marketplace', company: 'Shuttle',
-    image: '/images/shuttle-partner-app.png', heading: 'Less friction for drivers.',
+    image: '/images/shuttle-partner-app.png',
+    imageAlt: 'The Shuttle Partner driver app on a phone, showing a map of routes with weekly earnings, a prompt to complete profile registration, and the app’s 4.3 rating and 1K+ downloads.',
+    heading: 'Less friction for drivers.',
     summary: 'Driver interviews exposed where manual signup broke down. A self-serve registration flow helped reduce onboarding cost.',
     result: '40% lower onboarding cost', focus: 'User discovery · MVP delivery · Marketplace operations',
     link: 'https://play.google.com/store/apps/details?id=com.easytransport.shuttle.driver',
