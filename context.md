@@ -28,6 +28,31 @@ Live files in `portfolio/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (sixteenth pass)
+
+**Experience timeline now uses the full container width.** `.timeline-text` was
+capped at `max-width:660px` and `.timeline-points` at `720px`, while the
+surrounding `.container` runs to 1240px — leaving **456px of unused space** on
+the right at 1512px. Both caps removed; `.timeline-body` already extended to
+the container edge, so nothing else needed changing.
+
+Measured after: the bullets' right edge matches the nav's right edge exactly
+(`gap = 0`) at 1920, 1512, 1280, 1100, 900, 768 and 390px. Most bullets now
+set in two lines rather than three, so the section is shorter as well as wider.
+
+**Not** `text-align:justify`. The request said "justified", but CSS justify
+stretches word spacing to force both edges flush, which opens uneven rivers of
+whitespace in ragged technical copy and reads worse. The red line in the
+supplied screenshot marked where the text should *reach*, which is a width
+problem, not an alignment one. Flagged to the owner with the reasoning.
+
+Known trade-off: lines now run ~127 characters at 1512px, above the 75-85
+typographic comfort range. Acceptable here because these are scannable
+resume bullets, not continuous prose, and the owner asked for the full width
+explicitly. Easy to revisit by reinstating a cap around 900-1000px.
+
+---
+
 ## Session — 15 October 2026 (fifteenth pass)
 
 **Hobby icons replaced with supplied SVGs.** Six files in

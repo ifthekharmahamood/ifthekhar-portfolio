@@ -61,7 +61,7 @@
 .timeline-body h3{margin-top:12px;font-size:27px;line-height:1.2}
 .timeline-company{margin-top:7px;font-size:16px;font-weight:500;color:var(--teal)}
 .timeline-company span{color:var(--muted);font-weight:400}
-.timeline-text{margin-top:14px;max-width:660px;color:var(--muted)}
+.timeline-text{margin-top:14px;color:var(--muted)}
 @media(max-width:800px){
   .timeline-item{grid-template-columns:30px 1fr;gap:20px;padding-bottom:44px}
   .timeline-spine{left:14px}
@@ -83,7 +83,7 @@
 /* ── Timeline detail: promotion note, bullets, project tags ───────────────── */
 .timeline-promotion{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:13px;font-weight:500;color:var(--teal);background:rgba(46,95,69,.08);border-radius:999px;padding:4px 12px 4px 9px}
 .timeline-promotion svg{flex:none}
-.timeline-points{margin:16px 0 0;padding:0;list-style:none;max-width:720px;display:grid;gap:10px}
+.timeline-points{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:10px}
 .timeline-points li{position:relative;padding-left:20px;color:var(--muted);font-size:16px;line-height:1.58}
 .timeline-points li::before{content:'';position:absolute;left:3px;top:10px;width:5px;height:5px;border-radius:50%;background:var(--teal);opacity:.65}
 .timeline-projects{margin-top:18px;border-left:2px solid var(--line);padding:2px 0 2px 14px}
