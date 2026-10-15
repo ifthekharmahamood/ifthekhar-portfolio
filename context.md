@@ -27,6 +27,25 @@ Live files in `redesign/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (seventh pass)
+
+**How I Work was buried.** Measured at 82% down a 13.3-screen page — a
+recruiter had to scroll 10.9 screens to reach it. Two changes:
+
+- **Hero teaser.** A compact pill listing the six stage names, linking to the
+  full section. The stage names are imported from `ProductJourney.jsx` rather
+  than retyped, so the teaser cannot drift out of sync. Verified above the
+  fold at 1920x1080, 1440x900, 1440x780, 1366x768, 1280x720, 900x800 and
+  390x844, with the CTAs still visible.
+- **Section moved** from after Awards to directly after Selected Work:
+  82% -> 25% down the page (10.9 -> 3.3 screens). Nav order follows.
+- Short-viewport rules compress the hero below 820px and 740px tall, since
+  1366x768 and 1280x720 laptops otherwise pushed the teaser below the fold.
+- Dropped the `border-top` on the section: it separated two cream bands when
+  it followed Awards, and Selected Work above it is sage.
+
+---
+
 ## Session — 15 October 2026 (sixth pass)
 
 - **"Concept illustration" caption removed** from Selected Work, along with

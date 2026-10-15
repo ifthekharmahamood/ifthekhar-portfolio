@@ -19,7 +19,7 @@
 @media(min-width:801px) and (max-width:950px){.hero{padding:60px 0 100px}.hero h1{font-size:56px;max-width:calc(100vw - 415px)}.hero-lead{font-size:22px;max-width:calc(100vw - 415px)}.hero-description{font-size:17px;max-width:calc(100vw - 415px)}.hero-actions{flex-direction:row;max-width:calc(100vw - 415px)}.hero .location{max-width:calc(100vw - 415px)}.product-journey{position:relative;top:auto;right:auto;width:570px;max-width:calc(100% - 88px);margin:60px auto 0}.journey-body{grid-template-columns:127px minmax(0,1fr);gap:22px}.journey-stages button{flex-direction:row;align-items:center;gap:12px}.journey-stages button>span:last-child{font-size:12px}.journey-stages small{display:block}.journey-stage-icon{width:42px;height:42px}.journey-stages li:not(:last-child)::after{display:block;left:20px;top:43px}.journey-scene h2{max-width:290px;font-size:33px}.journey-description{min-height:42px}}
 
 /* ── Relocated out of the hero into its own Process section ───────────────── */
-.process{background:var(--cream);padding:88px 0 96px;border-top:1px solid #e0dacd}
+.process{background:var(--cream);padding:88px 0 96px}
 .process .section-heading{margin-bottom:34px}
 /* Override every hero-era absolute placement; the panel is now in normal flow. */
 .process .product-journey,

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import JourneyVisual from './JourneyVisuals';
 import { Lightbulb, ListChecks, PanelsTopLeft, Code2, Rocket, ChartNoAxesCombined, ArrowRight, Check, Pause, Play, Repeat2 } from 'lucide-react';
 
-const stages = [
+export const stages = [
   { name:'Ideation', icon:Lightbulb, question:'What problem is worth solving?', artifact:'The opportunity brief', title:'Start with the user.', description:'Understand the friction before falling in love with a solution.', items:['Listen to users', 'Frame the problem', 'Test the riskiest assumption'], output:'A validated problem', next:'Turn the opportunity into a plan' },
   { name:'Planning', icon:ListChecks, question:'What should we build first?', artifact:'The product roadmap', title:'Make the tradeoffs.', description:'Align the team around a clear outcome and a focused first release.', items:['Define success', 'Prioritize the smallest useful scope', 'Align people and dependencies'], output:'A shared direction', next:'Make the idea tangible' },
   { name:'Design', icon:PanelsTopLeft, question:'Does the solution work for people?', artifact:'The tested prototype', title:'Learn before building.', description:'Explore the experience, test it with users, and refine what matters.', items:['Map the core user journey', 'Prototype and test', 'Refine with design and engineering'], output:'A tested direction', next:'Build it together' },
