@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowUpRight, ArrowDown, ArrowUp, Database, TrendingUp, Layers, Wallet, GraduationCap, Award, Trophy, BookOpen, Camera, Plane, Tent, Bike, Volleyball } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, ArrowUp, Database, TrendingUp, Layers, Wallet, GraduationCap, Award, Trophy } from 'lucide-react';
 import { additionalProjects, education, certifications, awards, hobbies, career } from './data/portfolio';
 
 const projectIcons={systems:Database,growth:TrendingUp,concept:Layers,finance:Wallet};
-const hobbyIcons=[BookOpen,Camera,Plane,Volleyball,Tent,Bike];
+// Keyed by hobby name rather than array position, so reordering `hobbies`
+// cannot silently pair a hobby with the wrong icon.
+const hobbyIcons={Books:'books',Photography:'photography',Travelling:'travelling',Soccer:'soccer',Camping:'camping',Cycling:'cycling'};
 
 export function MoreProjects({ onSelect }) {
   return <section className="more-projects" id="more-projects" aria-labelledby="more-projects-title"><div className="container"><div className="section-heading" data-reveal><h2 id="more-projects-title">More Projects</h2></div><div className="project-grid">{additionalProjects.map((project,index)=>{
@@ -84,5 +86,5 @@ export function AwardsSection(){
 }
 
 export function HobbiesSection(){
-  return <section id="hobbies" className="hobbies-section" aria-labelledby="hobbies-title"><div className="container"><div className="section-heading" data-reveal><h2 id="hobbies-title">Hobbies</h2></div><div className="hobby-grid">{hobbies.map((hobby,index)=>{const Icon=hobbyIcons[index];return <div className="hobby-item" key={hobby} data-reveal><Icon size={34} strokeWidth={1.3} aria-hidden="true"/><h3>{hobby}</h3></div>;})}</div></div></section>;
+  return <section id="hobbies" className="hobbies-section" aria-labelledby="hobbies-title"><div className="container"><div className="section-heading" data-reveal><h2 id="hobbies-title">Hobbies</h2></div><div className="hobby-grid">{hobbies.map(hobby=><div className="hobby-item" key={hobby} data-reveal><img className="hobby-icon" src={`/images/hobbies/${hobbyIcons[hobby]}.svg`} alt="" width="48" height="48" decoding="async" /><h3>{hobby}</h3></div>)}</div></div></section>;
 }

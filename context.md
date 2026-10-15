@@ -28,6 +28,40 @@ Live files in `portfolio/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (fifteenth pass)
+
+**Hobby icons replaced with supplied SVGs.** Six files in
+`portfolio/public/images/hobbies/` (books, photography, travelling, soccer,
+camping, cycling), each 64x64 with the site palette already baked in —
+`#243E32` stroke, `#CBDCC4` fill. Total 4.3 KB.
+
+Mapped **by hobby name, not array index** (`hobbyIcons` is now an object), so
+reordering `hobbies` can no longer silently pair a hobby with the wrong icon —
+which is exactly what had happened before: Soccer was showing a volleyball.
+
+Dropped the six now-unused lucide imports; JS bundle fell 1.4 KB.
+
+**One real bug found and fixed during verification.** The icons were initially
+given `loading="lazy"`. They rendered blank — the labels appeared, 44x44 of
+space was reserved, and nothing drew. Network tracing showed **no requests were
+ever made**. For six files totalling 4.3 KB in a section users reach by
+scrolling, lazy loading saves nothing and costs correctness, so the attribute
+was removed. After that all six request, return 200 and paint.
+
+Worth recording: the first probe reported `loaded:false` and I initially
+dismissed it as the same lazy-load timing artifact seen with the Shuttle image
+in an earlier pass. The screenshot proved otherwise — the icons really were
+blank. The isolated `new Image()` test passing (64x64) is what separated "file
+is broken" from "page never asks for the file".
+
+SVGs are left unoptimised on purpose: they are vector text, already smaller
+than any raster equivalent, and the WebP pipeline has nothing to do with them.
+
+Verified: all six load at 64x64 natural / 44x44 painted on desktop, tablet and
+phone; zero overflow; zero console errors; all six copied into `dist/`.
+
+---
+
 ## Session — 15 October 2026 (fourteenth pass) — full pre-publish audit
 
 **Untracked, kept on disk:** `PORTFOLIO_REVIEW.md` (internal design critique
