@@ -92,7 +92,24 @@ async function connect(wsUrl) {
 }
 
 async function main() {
-  if (!CHROME) throw new Error('Chrome was not found; cannot encode WebP.');
+  // CI build servers have no Chrome. Optimised WebP siblings are committed to
+  // the repository, so there is nothing to encode there — skip rather than
+  // fail the build. Encoding happens locally, where Chrome exists.
+  if (!CHROME) {
+    console.log('Chrome not available — skipping image optimisation.');
+    // Warn loudly if a source image has no committed WebP sibling: it would
+    // ship at full weight, and nothing here can encode it.
+    if (existsSync(IMAGES)) {
+      const names = await readdir(IMAGES);
+      const missing = names
+        .filter(n => SOURCES.has(extname(n).toLowerCase()))
+        .filter(n => !existsSync(join(IMAGES, `${basename(n, extname(n))}.webp`)));
+      if (missing.length) {
+        console.warn(`WARNING: no WebP for ${missing.join(', ')} — run "npm run optimize:images" locally and commit the result.`);
+      }
+    }
+    return;
+  }
   if (!existsSync(IMAGES)) {
     console.log('No public/images directory yet — nothing to optimise.');
     return;
