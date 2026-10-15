@@ -103,3 +103,14 @@
 .timeline-company a,.school-name a,.certification-list h3 a{display:inline-flex;align-items:center;gap:4px;text-decoration:underline;text-decoration-color:rgba(46,95,69,.35);text-underline-offset:3px;transition:text-decoration-color .2s}
 .timeline-company a:hover,.school-name a:hover,.certification-list h3 a:hover{text-decoration-color:var(--teal)}
 .timeline-company a svg,.school-name a svg,.certification-list h3 a svg{flex:none;opacity:.7}
+
+/* ── Hero text must clear the portrait between 801 and 1100px ─────────────── */
+/* The portrait is 330-375px wide and absolutely positioned on the right, so
+   the copy needs an explicit ceiling here or it runs underneath it. */
+@media(min-width:801px) and (max-width:1100px){
+  .hero-content>*{max-width:calc(100vw - 415px)}
+  .hero h1{max-width:calc(100vw - 415px)}
+}
+@media(min-width:1101px) and (max-width:1250px){
+  .hero h1{max-width:calc(100vw - 475px)}
+}

@@ -27,6 +27,22 @@ Live files in `redesign/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (fourth pass)
+
+- **Stage diagrams were invisible below 1000px.** The diagrams rendered
+  correctly, but the `min-width:1000px` gate was set too conservatively: at
+  999px the card is already ~809px wide with clear room beside it, so any
+  laptop or un-maximised window lost them entirely. The gate is now 860px,
+  with a smaller diagram share between 860 and 1100px.
+- **Fixed hero text running under the portrait between 801 and 1100px.**
+  A stale rule in `product-journey.css` (`.hero{display:block}` plus
+  full-width copy) dated from when the journey panel lived inside the hero.
+  The panel has since moved to "How I Work", so the hero holds a portrait on
+  the right and the copy now stops 415px short of the viewport edge.
+  Verified clear at 801, 820, 860, 900, 960, 1024, 1100, 1200, 1250, 1440.
+
+---
+
 ## Session — 15 October 2026 (third pass)
 
 - **Impact metric labels aligned.** Each label is now two lines: the product
