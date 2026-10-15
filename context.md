@@ -27,6 +27,18 @@ Live files in `redesign/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (sixth pass)
+
+- **"Concept illustration" caption removed** from Selected Work, along with
+  its now-orphaned CSS.
+- **Real Beauty Editor artwork supplied** by the owner (1448x1086, already
+  4:3). Optimised 891KB -> 77KB at full resolution. Given a descriptive
+  `imageAlt` for screen readers, since there is no caption now.
+- Time Warp Scan and Shuttle Partner App still use the conceptual artwork;
+  the owner is supplying those next. Each needs an `imageAlt` when it lands.
+
+---
+
 ## Session — 15 October 2026 (fifth pass)
 
 - **Stage duration cut from 7s to 3s** in How I Work. The inner content

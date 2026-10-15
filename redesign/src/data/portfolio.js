@@ -9,10 +9,8 @@ export const outcomes = [
   { value: 4.4, suffix: '★', decimals: 1, label: 'Beauty Editor: Photo Retouch', metric: 'Reviews', spoken: '4.4 star rating for Beauty Editor Photo Retouch' },
   { value: 100, suffix: 'K+', label: 'Beauty Editor: Photo Retouch', metric: 'Downloads', spoken: 'Over 100 thousand Beauty Editor Photo Retouch downloads' },
 ];
-// `image` files live in public/images/. They are currently conceptual artwork,
-// so each row shows a "Concept illustration" caption. When a real product
-// screenshot replaces one, add `concept: false` and an `imageAlt` describing
-// what the screenshot shows.
+// `image` files live in public/images/, 4:3. Give each one an `imageAlt`
+// describing what the picture actually shows, for screen readers.
 export const stories = [
   {
     id: 'timewarp', title: 'Time Warp Scan', category: 'Consumer mobile', company: 'Kite Games Studio',
@@ -29,7 +27,9 @@ export const stories = [
   },
   {
     id: 'beauty', title: 'Beauty Editor', category: 'Consumer mobile', company: 'Kite Games Studio',
-    image: '/images/beauty-editor.png', heading: 'A better first-time experience.',
+    image: '/images/beauty-editor.png',
+    imageAlt: 'The Beauty Editor retouch screen on a phone, with a before and after split of a portrait, a skin smoothing slider, and the app’s 4.4 star rating and 100K+ downloads.',
+    heading: 'A better first-time experience.',
     summary: 'Rebuilt onboarding and UI to make the first experience simpler, then used a post-launch analytics loop to guide growth.',
     result: '+21% core retention', focus: 'Onboarding · Prioritization · Product analytics',
     link: 'https://play.google.com/store/apps/details?id=com.app.beautyeditor',
