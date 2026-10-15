@@ -28,6 +28,25 @@ Live files in `redesign/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (twelfth pass)
+
+**Nav label `Work` renamed to `Products`.** Sitting beside `How I Work`, the two
+shared a word and read as one idea split in two, even though they answer
+different questions: `#projects` holds three shipped products with real users
+and metrics (Time Warp Scan, Beauty Editor, Shuttle Partner App), while
+`#how-i-work` holds the six-stage PM method and contains no products at all.
+`Products` is the concrete word for shipped artifacts and carries no
+expectation about write-up length.
+
+Nav only — the section heading stays **Selected Work**, which has room to be
+warmer than the bar. The two are separate strings (`Portfolio.jsx:12` vs the
+`work-title` h2), so they can differ deliberately.
+
+Verified at 1512/1366/1280/1200/1101px: single row, consistent 19px gaps
+between links, 30px before the Resume button, no overlap and no overflow.
+
+---
+
 ## Session — 15 October 2026 (eleventh pass)
 
 **Top nav order corrected.** The nav array still listed
