@@ -46,7 +46,7 @@ function MailLink({ className, children, subject = '', ...rest }) {
 }
 
 function Counter({ metric }) {
-  return <div className="outcome" data-reveal><p className="outcome-number" aria-label={metric.spoken}><span aria-hidden="true">{metric.prefix}<span data-counter data-target={metric.value} data-decimals={metric.decimals || 0}>{metric.value}</span>{metric.suffix}</span></p><p className="outcome-label">{metric.label}</p></div>;
+  return <div className="outcome" data-reveal><p className="outcome-number" aria-label={metric.spoken}><span aria-hidden="true">{metric.prefix}<span data-counter data-target={metric.value} data-decimals={metric.decimals || 0}>{metric.value}</span>{metric.suffix}</span></p><p className="outcome-label">{metric.label}{metric.metric && <span>{metric.metric}</span>}</p></div>;
 }
 
 function usePortfolioMotion(scope) {

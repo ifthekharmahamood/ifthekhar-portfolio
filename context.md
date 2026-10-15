@@ -27,6 +27,19 @@ Live files in `redesign/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 
 ---
 
+## Session — 15 October 2026 (third pass)
+
+- **Impact metric labels aligned.** Each label is now two lines: the product
+  name, then the metric word on its own line (`metric` field in
+  `outcomes`, rendered as a block-level span). Previously the longer Beauty
+  Editor labels wrapped while "Time Warp Scan downloads" did not, so the
+  three sat at different heights. Metric words are capitalised: Downloads,
+  Reviews, Downloads. Verified identical line tops and heights at 1440,
+  1100, 900 and 760px; below 800px the grid is single-column by design.
+  The `spoken` aria-labels still read as natural sentences.
+
+---
+
 ## Session — 15 October 2026 (second pass)
 
 - **Impact heading fixed.** It had been rendering at 12px because the original

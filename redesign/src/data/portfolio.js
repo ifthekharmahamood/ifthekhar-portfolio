@@ -5,9 +5,9 @@ export const person = {
   resume: '/Ifthekhar_Enad_Mahamood_Resume.docx',
 };
 export const outcomes = [
-  { value: 5, suffix: 'M+', decimals: 1, label: 'Time Warp Scan downloads', spoken: 'Over 5 million Time Warp Scan downloads' },
-  { value: 4.4, suffix: '★', decimals: 1, label: 'Beauty Editor: Photo Retouch reviews', spoken: '4.4 star rating for Beauty Editor Photo Retouch' },
-  { value: 100, suffix: 'K+', label: 'Beauty Editor: Photo Retouch downloads', spoken: 'Over 100 thousand Beauty Editor Photo Retouch downloads' },
+  { value: 5, suffix: 'M+', decimals: 1, label: 'Time Warp Scan', metric: 'Downloads', spoken: 'Over 5 million Time Warp Scan downloads' },
+  { value: 4.4, suffix: '★', decimals: 1, label: 'Beauty Editor: Photo Retouch', metric: 'Reviews', spoken: '4.4 star rating for Beauty Editor Photo Retouch' },
+  { value: 100, suffix: 'K+', label: 'Beauty Editor: Photo Retouch', metric: 'Downloads', spoken: 'Over 100 thousand Beauty Editor Photo Retouch downloads' },
 ];
 export const stories = [
   {
