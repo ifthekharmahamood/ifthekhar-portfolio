@@ -13,9 +13,10 @@ A personal portfolio for Ifthekhar Enad Mahamood, Product Manager.
 npm.cmd run dev --prefix redesign
 ```
 
-The root `src/` (port 5173) is an **abandoned earlier version** in a dark
-charcoal/yellow palette. It still contains retracted claims (20M+ downloads,
-"40% faster onboarding", GPA 4.00) and must never be published.
+The abandoned root site (`src/`, `index.html`, `public/`) was **deleted** —
+it carried retracted claims (20M+ downloads, "40% faster onboarding", GPA 4.00).
+Port 5173 no longer serves anything. The root `package.json`/`node_modules`
+must survive any cleanup.
 
 `redesign/` deliberately has **no `node_modules` of its own** — Node resolves
 `react`, `gsap`, `vite` by walking up to the parent install. Do not run
@@ -24,6 +25,31 @@ charcoal/yellow palette. It still contains retracted claims (20M+ downloads,
 Live files in `redesign/src`: `Portfolio.jsx`, `ProductJourney.jsx`,
 `PortfolioSections.jsx`, `ResumePreview.jsx`, `portfolio.css`,
 `product-journey.css`, `data/portfolio.js`, `data/resume.json`.
+
+---
+
+## Session — 15 October 2026 (eleventh pass)
+
+**Top nav order corrected.** The nav array still listed
+`Projects, How I Work, Experience, Education, ...` from before Experience and
+More Projects were swapped, so the bar skipped More Projects entirely and its
+order no longer matched the page. Two changes in `Portfolio.jsx:12`:
+
+- Added `['More Projects', '#more-projects']` between Experience and Education,
+  its true position in the document.
+- Renamed `Projects` to `Work` so the label matches its heading
+  (`Selected Work`) and no longer reads as a near-duplicate of More Projects.
+
+The nav array is also what drives the scroll-spy (`Portfolio.jsx:103` maps it to
+section nodes), so the missing entry meant no nav item lit up while More
+Projects was on screen. Both are fixed by the same edit.
+
+Verified at 1512/1366/1200/1100px: all nine links resolve, their targets ascend
+in document order, the bar does not overflow, and the scroll-spy highlights
+exactly one correct item in every section.
+
+Also corrected a stale line above — this file still described the root `src/`
+as a live abandoned version on port 5173; it was deleted in an earlier pass.
 
 ---
 

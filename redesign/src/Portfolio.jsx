@@ -9,7 +9,7 @@ import { MoreProjects, ExperienceSection, EducationSection, CertificationsSectio
 
 gsap.registerPlugin(ScrollTrigger);
 const prefersReduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const navigation = [ ['Projects', '#projects'], ['How I Work', '#how-i-work'], ['Experience', '#experience'], ['Education', '#education'], ['Certifications', '#certifications'], ['Awards', '#awards'], ['Hobbies', '#hobbies'], ['Contact', '#contact'] ];
+const navigation = [ ['Work', '#projects'], ['How I Work', '#how-i-work'], ['Experience', '#experience'], ['More Projects', '#more-projects'], ['Education', '#education'], ['Certifications', '#certifications'], ['Awards', '#awards'], ['Hobbies', '#hobbies'], ['Contact', '#contact'] ];
 
 // Serves the WebP produced by scripts/optimize-images.mjs, falling back to the
 // original file wherever WebP is unsupported. Same pixels, far fewer bytes.
